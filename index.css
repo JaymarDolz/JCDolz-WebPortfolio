@@ -52,7 +52,7 @@ smoky black: 0b0c10
 
 @media  (max-width: 576px) {
   #overlay{
-		background: linear-gradient(0deg, rgba(0,0,0,.7) 0%,  rgba(0,0,0,.8) 30%, rgba(0,0,0,.9) 40%, rgba(0,0,0,0) 50%);
+		background: linear-gradient(0deg, rgba(0,0,0,.7) 0%,  rgba(0,0,0,.5) 30%, rgba(0,0,0,.8) 40%, rgba(0,0,0,0) 50%);
   }
 }
 
