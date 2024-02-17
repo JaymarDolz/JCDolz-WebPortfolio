@@ -25,6 +25,10 @@
 
 <body>
 
+
+
+
+
   <!-- navbar start -->
   <nav class="navbar navbar-expand-md fixed-top bg-dark border-body" data-bs-theme="dark">
     <div class="container-fluid ms-3">
@@ -76,21 +80,24 @@
   </nav>
   <!--  navbar end -->
 
+
+
   <!-- hero section -->
   <section class="container-fluid" id="hero">
     <div id="overlay">
     </div>
+
     <div class="row">
       <div class="order-2 order-md-1 col-md-4 d-flex align-items-start align-items-md-center text-center text-md-end justify-content-center justify-content-md-end"  id="hero-container" >
-        <div class="d-flex flex-column " id="hero-content">
-          <h2 >
+        <div class="d-flex flex-column " id="content">
+          <h2>
             Hello I'm
           </h2>
           <h1>
             JAYMAR DOLZ
           </h1>
           <!-- TEXT MULTISLIDE  https://www.youtube.com/watch?v=gR0-eb5ncEU -->
-          <h3 id="animate-text">
+          <div id="animate-text">
             <span>
               ELECTRICAL ENGINEER
             </span>
@@ -100,7 +107,10 @@
             <span>
               GRAPHIC DESIGNER
             </span>
-          </h3>
+            <span>
+              GRAPHIC ARTIST
+            </span>
+          </div>
 
           <!-- button here -->
           <div class="mt-4" id="hero-button">
@@ -114,7 +124,6 @@
       <div class="order-1 order-md-2 col-12 col-md-8 d-flex align-items-end  justify-content-center" id="hero-profile">
         <img src="./images/myprofile.png" alt="Jaymar Dolz Profile">
       </div>
-
       <div id="glow-overlay">
       </div>
     </div>
@@ -122,7 +131,54 @@
   </section>
   <!-- End of Hero Section -->
 
+  <!-- About Me Section -->
+  <section class="container-fluid" id="about-me">
 
+    <div class="row">
+      <div class="container">
+        <p id="text-overlay">
+            ABOUT ME ABOUT ME ABOUT ME
+        </p>
+      </div>
+      <div class="container">
+        <div id="image-overlay"></div>
+      </div>
+      <div class="container">
+        <div id="overlay"></div>
+      </div>
+      <div class="container">
+        <div id="glow-overlay"></div>
+      </div>
+
+
+      <div class="order-1 col-12 col-md-8 d-flex justify-content-center" id="about-me-anim">
+        <img src="./images/codinganim2.gif" alt="Programming Animation">
+      </div>
+
+      <div class="order-2 col-12 flex-column col-md-4 d-flex align-items-center align-items-md-start text-center text-md-start justify-content-center justify-content-md-start" id="about-me-container">
+        <div class="d-flex flex-column" id="content-header">
+           <h1>ABOUT ME</h1>
+        </div>
+        <div class="d-flex flex-column pb-4" id="content">
+          <!-- <h1 class="my-4">ABOUT ME</h1> -->
+          <p class="my-4">
+            I’m an experienced Electrical Engineer transitioning to Full-Stack Web Development with a strong foundation in problem-solving and analytical thinking.
+          </p>
+          <p class="my-4">
+            I am also a creative graphic designer with proficiency in Adobe Photoshop. Having learned front-end technologies like HTML5, CSS, and Bootstrap, I bring a unique blend of analytical and creative expertise. Additionally, I have acquired skills in Git version control, and my back-end proficiency includes MongoDB, Express.js, Node.js, React.js, and Postman for comprehensive web development.
+          </p>
+          <p class="my-4">
+            I am also a creative graphic designer with proficiency in Adobe Photoshop. Having learned front-end technologies like HTML5, CSS, and Bootstrap, I bring a unique blend of analytical and creative expertise. Additionally, I have acquired skills in Git version control, and my back-end proficiency includes MongoDB, Express.js, Node.js, React.js, and Postman for comprehensive web development.
+          </p>
+          <p class="my-4">
+            I am also a creative graphic designer with proficiency in Adobe Photoshop. Having learned front-end technologies like HTML5, CSS, and Bootstrap, I bring a unique blend of analytical and creative expertise. Additionally, I have acquired skills in Git version control, and my back-end proficiency includes MongoDB, Express.js, Node.js, React.js, and Postman for comprehensive web development.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End of About Me Section -->
 
 
 
@@ -173,6 +229,7 @@
     window.onload=animateText;
   </script>
   <!--End of Text Animation -->
+
 
 </body>
 </html>
