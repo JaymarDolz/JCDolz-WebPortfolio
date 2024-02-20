@@ -2,8 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Varela Round', sans-serif;
-                               
+	font-family: 'Varela Round', sans-serif;                        
 }
 
 /* color scheme
@@ -26,7 +25,7 @@
 }
 
 ::-webkit-scrollbar-thumb{
-  background: linear-gradient(#030405 0%, rgba(102,252,241,1) 15%, rgba(102,252,241,1) 85%, #030405 100%);
+  background: linear-gradient(#030405 0%, #66fcf1 15%, rgba(102,252,241,1) 85%, #030405 100%);
 }
 
 
@@ -45,7 +44,8 @@
       width: 70vw !important;
     }
 
-/* Hero Section */
+
+/*================ Hero Section =============*/
     #hero{
       position: fixed; 
       top: 0; 
@@ -213,13 +213,15 @@
       position: relative;
       color: hsl(186 100% 69%);
       cursor: pointer;
-      padding: 0.35em 1.5em;
-      border: 0.15em solid hsl(186 100% 69%);
+      border: 4px solid #61efff;
+      padding: 10px 20px;
+      border: 0.15rem solid hsl(186 100% 69%);
       border-radius: 0.5rem;
-      background: none;
-      font-family: "Raleway", sans-serif;
+      background: transparent;
+      overflow: hidden;
+      /* font-family: "Raleway", sans-serif; */
       font-size: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
-      letter-spacing: .5rem;
+      /* letter-spacing: .5rem; */
       z-index: 2;
       -webkit-box-shadow: inset 0px 0px 0.5em 0px hsl(186 100% 69%),
         0px 0px 0.5em 0px hsl(186 100% 69%);
@@ -231,7 +233,7 @@
 
     .glowing-txt {
       float: left;
-      margin-right: -0.8em;
+      /* margin-right: -0.8em; */
       z-index: 2;
       -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
         0 0 0.45em hsl(186 100% 69%);
@@ -240,7 +242,7 @@
       text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em hsl(186 100% 69%);
     }
 
-    .glowing-btn::after {
+    /* .glowing-btn::after {
       content: "";
       position: absolute;
       top: 0;
@@ -252,12 +254,12 @@
       background-color: hsl(186 100% 69%);
       box-shadow: 0 0 2em 0.2em hsl(186 100% 69%);
       transition: opacity 100ms linear;
-    }
+    } */
 
     .glowing-btn:hover {
       color: rgba(0, 0, 0, 0.8);
       text-shadow: none;
-      animation: none;
+      transition: color 1s;
     }
 
     .glowing-btn:hover .glowing-txt {
@@ -270,210 +272,533 @@
       opacity: 1;
     }
 
-    .glowing-btn:hover:after {
+    /* .glowing-btn:hover:after {
       opacity: 1;
+    } */
+
+    .glowing-btn:hover:before {
+      transition: all 1s;
     }
 
+    .glowing-btn::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      top: 0;
+      left: -40px;
+      transform: skewX(45deg);
+      background-color: #61efff;
+      z-index: -1;
+      transition: all 1s;
+    }
+
+    .glowing-btn:hover::before {
+      width: 160%;
+    }
+
+
     .glowing-btn:active{
+      transition: 100ms linear;
       transform: scale(0.95);
     }
 
 
-/* ABOUT-ME */
-
-/* ABOUT-ME */
-
-#about-me {
-  background-color: #0b0c10;
-  position: relative;
-  top: 100vh;
-  overflow: clip;
-  z-index: 0;
-}
+/* ================ABOUT-ME==================*/
 
 
-#about-me-anim img{
-  position: sticky;
-  top: 10vh;
-  margin-top: 10vh;
-  max-height: 90vh;
-  z-index: 2;
-}
-
-
-@media  (max-width: 766px) {
-  /* @media  (max-width: 576px) { */
-  #about-me-anim{
-    position: absolute;
-    top: 0;
-    height: 100%;
-  } 
-}
-
-@media  (max-width: 766px) {
-  /* @media  (max-width: 576px) { */
-  #about-me-anim img{
-    position: sticky;
-    top: 10;
-    margin-top: 10vh;
-    max-height: 45vh;
-    z-index: 2;
-  }
-}
-
-/* THANK YOU!!! */
-/* https://stackoverflow.com/questions/8328886/sticky-top-div-with-absolute-positioning */
-/* 
-Problem
-overlaying multiple sticky elements as if in absolute without transform: translateY
-
-Solution
-parent HTML element use position: absolute to have the right position.
-(don't forget to set height for parent. for example height:100%)
-
-child HTML element position: sticky
-work for me.
-
-took about 1 day WTF
-
-*/
+    #about-me {
+      background-color: #0b0c10;
+      position: relative;
+      top: 100vh;
+      overflow: clip;
+      z-index: 0;
+    }
 
 
 
-#about-me .container{
-  position: absolute;
-  top: 0;
-  height: 100%;
-  --bs-gutter-x: 0px ;
-}
+    #about-me-anim img{
+      position: sticky;
+      top: 10vh;
+      margin-top: 10vh;
+      max-height: 90vh;
+      z-index: 2;
+    }
 
 
-#about-me #overlay{
-  position: sticky;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  background: linear-gradient(-90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,.5) 40%);
-}
+    @media  (max-width: 766px) {
+      /* @media  (max-width: 576px) { */
+      #about-me-anim{
+        position: absolute;
+        top: 0;
+        height: 85%;
+      } 
+    }
 
-@media  (max-width: 766px) {
-  #about-me #overlay{
-    background: linear-gradient(0deg, rgba(0,0,0,.5) 0%,  rgba(0,0,0,.5) 25%,  rgba(0,0,0,.5) 40%, rgba(0,0,0, 0) 50%);
-  }
-}
+    @media  (max-width: 766px) {
+      /* @media  (max-width: 576px) { */
+      #about-me-anim img{
+        position: sticky;
+        max-height: 45vh;
+        z-index: 2;
 
-#about-me #image-overlay {
-  position: sticky;
-  z-index: 2;
-  top: 0;
-  filter: blur(3px);
-  width: auto;
-  height: 100vh;
-  background-image: url('./images/codingstill.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: -5vw 65%; 
-  -webkit-mask-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,.2) 30%, rgba(0,0,0,.7));
-  mask-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,.2) 30%, rgba(0,0,0,.7) 35%, rgba(0,0,0,.7));
-  mix-blend-mode: overlay;
-}
+      }
+    }
 
+    /* THANK YOU!!! */
+    /* https://stackoverflow.com/questions/8328886/sticky-top-div-with-absolute-positioning */
+    /* 
+    Problem
+    overlaying multiple sticky elements as if in absolute without using transform: translateY
 
-#about-me #glow-overlay {
-  position: sticky;
-  top: 0;
-  width: 55%;
-  height: 100vh;
-  background-image: url('./images/overlay-glow.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  mix-blend-mode: overlay;
-  z-index: 1;
-  filter: blur(5vw);
-}
+    Solution
+    parent HTML element use position: absolute to have the right position.
+    (don't forget to set height for parent. for example height:100%)
+
+    child HTML element position: sticky
+
+    took about 1 day WTF
+
+    */
 
 
-#about-me #text-overlay{
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  font-size: clamp(4rem, 1.3301rem + 11.3916vw, 15rem);
-  font-family: 'HvDTrial Brandon Grotesque', sans-serif;
-  color: #ffffff;
-  mix-blend-mode: overlay;
-  white-space:nowrap;
-  transform: translateX(-5%);
-}
 
-@media  (max-width: 766px) {
-  #about-me #text-overlay{
-    margin-top: 10vh;
-    top: 10vh;
-    color: #ffffff6b;
-  }
-}
+    #about-me .container{
+      position: absolute;
+      top: 0;
+      height: 100%;
+      --bs-gutter-x: 0px;
+    }
 
 
-#about-me #content{
-  z-index: 2;
-}
 
-#about-me #content-header{
-  z-index: 2;
-  margin-top: 20vh;
-}
+    #about-me #dark-overlay{
+      position: sticky;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+      background: linear-gradient(-90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,.5) 40%, rgba(0,0,0,0) );
+    }
 
-/* fade to transparent
-https://webdevtrick.com/css-text-fade-out/
- */
- @media  (max-width: 766px) {
-  /* @media  (max-width: 576px) { */
-  #about-me #content{
-    padding-left: 5vh;
-    background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgb(255, 255, 255) 55%, rgb(255, 255, 255) 60%, white 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-attachment: fixed;
-  }  
-}
+    @media  (max-width: 766px) {
+      #about-me #dark-overlay{
+        background: linear-gradient(0deg, rgba(0,0,0,.5) 0%,  rgba(0,0,0,.5) 25%,  rgba(0,0,0,.5) 40%, rgba(0,0,0, 0) 50%);
+      }
+    }
 
-@media  (max-width: 766px) {
-  /* @media  (max-width: 576px) { */
-  #about-me #content-header{
-    background-image: linear-gradient(#66fcf200 0%, #66fcf200 45%, #66fcf1 50%, #66fcf1 55%, #66fcf1 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-attachment: fixed;
-  }  
-}
+    #about-me #image-overlay {
+      position: sticky;
+      z-index: 1;
+      top: 0;
+      filter: blur(3px);
+      width: auto;
+      height: 100vh;
+      background-image: url('./images/codingstill.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: -5vw 65%; 
+      -webkit-mask-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,.2) 30%, rgba(0,0,0,.7));
+      mask-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,.2) 30%, rgba(0,0,0,.7) 35%, rgba(0,0,0,.7));
+      mix-blend-mode: overlay;
+    }
 
 
-@media  (max-width: 766px) {
-  /* @media  (max-width: 576px) { */
-  #about-me #content > *,
-  #about-me #content-header > *{
-    color: transparent;
-  }
-}
+    #about-me #glow-overlay {
+      position: sticky;
+      top: 0;
+      width: 55%;
+      height: 100vh;
+      background-image: url('./images/overlay-glow.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      mix-blend-mode: overlay;
+      z-index: 2;
+      filter: blur(5vw);
+    }
 
-#about-me h1{
-  font-size: clamp(1.5rem, 1.1359rem + 1.5534vw, 3rem);
-  font-family: 'HvDTrial Brandon Grotesque', sans-serif;
-  color: #66fcf2;
-}
+    
+    #about-me #bottom-overlay{
+      position: sticky;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+      background: linear-gradient(180deg, #040a0d00 0%, #040a0d49 85%, #040a0d 90%, #040a0d 100%);
+    }
 
-@media  (max-width: 766px) {
-  /* @media  (max-width: 576px) { */
-  #about-me h1{
-    margin-top: 45vh;
-  }
-}
+    #about-me #text-overlay{
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 2;
+      font-size: clamp(4rem, 2.0583rem + 8.2848vw, 12rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf2;
+      mix-blend-mode: overlay;
+      white-space:nowrap;
+      transform: translateX(-5%);
+    }
 
-#about-me p{
-  padding-right: 5vh;
-  font-size: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
-  color: #ffffff;
-  text-align: justify;
-}
+    @media  (max-width: 766px) {
+      #about-me #text-overlay{
+        margin-top: 10vh;
+        top: 10vh;
+        height: 90vh;
+        color: #66fcf2;
+      }
+    }
+    
 
+
+    #about-me #about-me-container{
+      z-index: 3;
+      margin-bottom: 40vh;
+    }
+
+    #about-me #content-header{
+      z-index: 3;
+      margin-top: 20vh;
+    }
+
+    /* fade to transparent
+    https://webdevtrick.com/css-text-fade-out/
+    */
+    /* apparently "background-attachment: fixed;" is not supported in iphones? */
+
+    @media  (max-width: 766px) {
+      /* @media  (max-width: 576px) { */
+      #about-me #content{
+        padding-left: 5vh;
+        background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgb(255, 255, 255) 55%, rgb(255, 255, 255) 60%, white 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-background-attachment: fixed;
+        background-attachment: fixed;
+      }  
+    }
+
+    @media  (max-width: 766px) {
+        /* @media  (max-width: 576px) { */
+      #about-me #content-header{
+        background-image: linear-gradient(#66fcf200 0%, #66fcf200 45%, #66fcf1 50%, #66fcf1 55%, #66fcf1 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        background-attachment: fixed;
+      }  
+    }
+
+
+    @media  (max-width: 766px) {
+      /* @media  (max-width: 576px) { */
+      #about-me #content > *,
+      #about-me #content-header > *{
+        color: transparent;
+      }
+    }
+
+    #about-me h1{
+      font-size: clamp(1.5rem, 1.1359rem + 1.5534vw, 3rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf2;
+    }
+
+    @media  (max-width: 766px) {
+      /* @media  (max-width: 576px) { */
+      #about-me h1{
+        margin-top: 45vh;
+      }
+    }
+
+    #about-me p{
+      padding-right: 5vh;
+      font-size: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
+      color: #ffffff;
+      text-align: justify;
+    }
+
+/*================== Tech Stack ==================*/
+
+    #tech-stack {
+      position: relative;
+      top: 100vh;
+      height: 100vh;
+      overflow: clip;
+      background-image: url('./images/techstackbg.png');
+      background-size: 100%, 0;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      --bs-gutter-x: 0px;
+    }
+
+    @media  (max-width: 766px) {
+      #tech-stack {
+        background-size: cover;
+      }
+    }
+
+
+    #tech-stack #overlay{
+      background: rgb(0,0,0);
+      background: linear-gradient(0deg, #040a0d00 0%,  rgba(4, 10, 13, 0.4) 25%, #040a0de3 45%, #040a0dfc 55%, #040a0d 100%);
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+
+    }
+
+    #tech-stack .container{
+      position: absolute;
+      top: 0;
+      height: 100%;
+      --bs-gutter-x: 0px;
+
+    }
+
+    #tech-stack #text-overlay{
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 1;
+      font-size: clamp(4rem, 2.0583rem + 8.2848vw, 12rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf1;
+      mix-blend-mode: overlay;
+      white-space:nowrap;
+      transform: translateX(-65%);
+    }
+
+    @media  (max-width: 766px) {
+      #tech-stack #text-overlay{
+        margin-top: 10vh;
+        top: 10vh;
+        color: #66fcf1;
+      }
+    }
+
+
+
+    #tech-stack h1{
+      font-size: clamp(2rem, 1.2718rem + 3.1068vw, 5rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf2;
+      margin-top: 15vh;
+      z-index: 2;
+    }
+
+    #tech-stack .scroller{
+      margin-top: 5vh;
+      max-width: 80%;
+      z-index: 2;
+    }
+    
+    #tech-stack .scroller-inner{
+      padding-block: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+  
+    }
+
+    @media  (max-width: 766px) {
+      #tech-stack .scroller-inner{
+        gap: .4rem;
+      }
+    }
+
+
+    #tech-stack ul{
+      white-space:nowrap;
+    }
+    
+    #tech-stack li{
+      display: flex;
+      flex-direction: column;
+      font-size: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
+      color: #ffffff;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      padding: .5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      display: flex;
+    }
+
+    ol, ul {
+      padding-left: 0  !important;
+    }
+    
+    #tech-stack li img{
+      margin-top: 1rem;
+      width: 5vw;
+    }
+
+    @media  (max-width: 766px) {
+      #tech-stack li img{
+        margin-top: 1rem;
+        width: 15vw;
+      }
+    }
+
+    /* infinite Scroll */
+
+    .scroller[data-animated=true]{
+      overflow: hidden;
+      -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+      mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+     }
+    
+    .scroller[data-animated=true] .scroller-inner{
+      width: max-content;
+      flex-wrap: nowrap;
+      animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+    }
+
+    @media  (max-width: 766px) {
+      .scroller[data-animated=true] .scroller-inner{
+        width: max-content;
+        flex-wrap: nowrap;
+        animation: scroll var(--_animation-duration, 15s)
+        var(--_animation-direction, forwards) linear infinite;
+      }
+    }
+   
+    .scroller[data-direction="right"]{
+      --_animation-direction: reverse;
+    }
+    
+    .scroller[data-direction="left"]{
+      --_animation-direction: forwards;
+    }
+    
+    .scroller[data-speed="slow"]{
+      --_animation-duration: 60s
+    }
+    
+    .scroller[data-speed="fast"]{
+      --_animation-duration: 20s
+    }
+    
+    
+    @keyframes scroll {
+      to {
+        transform: translate(calc(-50% - 1rem));
+      }
+    }
+
+    @media  (max-width: 766px) {
+      to {
+        transform: translate(calc(-50% -.2rem));
+      }
+    }
+
+    /* End of Infinite Scroll */
+
+    #tech-stack #content{
+      margin-top: 10vh;
+      z-index: 3
+    }
+
+    @media  (max-width: 766px) {
+      #tech-stack #content{
+        position: absolute;
+        bottom: 0;
+        height: 100vh;
+        margin-bottom: 15vh;
+      }
+    }
+    
+    #tech-stack h2{
+      font-size: clamp(1.5rem, 1.1359rem + 1.5534vw, 3rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #ffffff;
+      text-shadow: 0px 5px 15px rgba(0,0,0,0.8);
+    }
+
+    #tech-stack h2 span{
+      margin-left: clamp(0.5rem, 0.3786rem + 0.5178vw, 1rem);
+      font-size: clamp(1.5rem, 1.1359rem + 1.5534vw, 3rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf2;
+      text-shadow: 0px 5px 15px rgba(0,0,0,0.8);
+    }
+
+
+
+    #tech-stack #content p{
+      width: 60%;
+      z-index: 3;
+      margin-inline: auto;
+      font-size: clamp(0.5rem, 0.3786rem + 0.5178vw, 1rem);
+      color: #ffffff;
+      justify-content: center;
+
+      text-shadow: 0px 5px 5px rgba(0,0,0,0.8);
+    }
+
+    #tech-stack #content p a{
+      width: 50%;
+      z-index: 3;
+      margin-inline: auto;
+      font-size: clamp(0.5rem, 0.3786rem + 0.5178vw, 1rem);
+      color: #66fcf2;
+      justify-content: center;
+      
+    }
+
+    #tech-stack #content p span{
+      width: 50%;
+      z-index: 3;
+      margin-inline: auto;
+      font-size: clamp(0.5rem, 0.3786rem + 0.5178vw, 1rem);
+      color: #c5fffc;
+      justify-content: center;
+    }
+
+    /* button from https://uiverse.io/SujitAdroja/sharp-frog-56 */
+
+    #tech-stack .btn {
+      margin-top: 5vh;
+
+      color: #61efff;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 4px solid #61efff;
+      padding: 10px 20px;
+      font-size: clamp(0.5rem, 0.3786rem + 0.5178vw, 1rem);
+      font-weight: bold;
+      background: transparent;
+      position: relative;
+
+      overflow: hidden;
+    }
+    
+    #tech-stack .btn:hover {
+      color: #040a0d;
+      transition: all 1s;
+    }
+    
+    #tech-stack .btn::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      top: 0;
+      left: -40px;
+      transform: skewX(45deg);
+      background-color: #61efff;
+      z-index: -1;
+      transition: all 1s;
+    }
+    
+    #tech-stack .btn:hover::before {
+      width: 160%;
+    }
+
+    #tech-stack .btn:active{
+      transition: 100ms linear;
+      transform: scale(0.95);
+    }
