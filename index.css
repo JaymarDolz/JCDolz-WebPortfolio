@@ -216,7 +216,7 @@
       border: 4px solid #61efff;
       padding: 10px 20px;
       border: 0.15rem solid hsl(186 100% 69%);
-      border-radius: 0.5rem;
+      /* border-radius: 0.5rem; */
       background: transparent;
       overflow: hidden;
       /* font-family: "Raleway", sans-serif; */
@@ -331,7 +331,7 @@
       #about-me-anim{
         position: absolute;
         top: 0;
-        height: 85%;
+        height: 80%;
       } 
     }
 
@@ -341,6 +341,7 @@
         position: sticky;
         max-height: 45vh;
         z-index: 2;
+        /* border: 5px solid white; */
 
       }
     }
@@ -453,24 +454,39 @@
 
     #about-me #about-me-container{
       z-index: 3;
-      margin-bottom: 40vh;
+      margin-bottom: 20vh;
     }
 
-    #about-me #content-header{
-      z-index: 3;
-      margin-top: 20vh;
-    }
+
+
+
+
+
+
 
     /* fade to transparent
     https://webdevtrick.com/css-text-fade-out/
     */
     /* apparently "background-attachment: fixed;" is not supported in iphones? */
 
+
+
+    #about-me #content{
+      margin-top: 30vh;
+      margin-bottom: 10vh;
+      background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgb(255, 255, 255) 25%, rgb(255, 255, 255) 35%, white 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-background-attachment: fixed;
+      background-attachment: fixed;
+    }  
+
     @media  (max-width: 766px) {
-      /* @media  (max-width: 576px) { */
       #about-me #content{
-        padding-left: 5vh;
-        background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgb(255, 255, 255) 55%, rgb(255, 255, 255) 60%, white 100%);
+        margin-top: 70vh;
+        margin-bottom: -25vh;
+
+        background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 55%, rgb(255, 255, 255) 60%, rgb(255, 255, 255) 70%, white 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-background-attachment: fixed;
@@ -478,45 +494,198 @@
       }  
     }
 
-    @media  (max-width: 766px) {
-        /* @media  (max-width: 576px) { */
-      #about-me #content-header{
-        background-image: linear-gradient(#66fcf200 0%, #66fcf200 45%, #66fcf1 50%, #66fcf1 55%, #66fcf1 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-
-        background-attachment: fixed;
-      }  
+    #about-me #content-header{
+      z-index: 3;
+      position: absolute;
+      top: 0;
+      --bs-gutter-x: 0px;
     }
 
 
-    @media  (max-width: 766px) {
-      /* @media  (max-width: 576px) { */
-      #about-me #content > *,
-      #about-me #content-header > *{
-        color: transparent;
-      }
+
+
+    #about-me #content > p{
+      color: transparent;
     }
+
+
+ 
 
     #about-me h1{
       font-size: clamp(1.5rem, 1.1359rem + 1.5534vw, 3rem);
       font-family: 'HvDTrial Brandon Grotesque', sans-serif;
       color: #66fcf2;
+      position: sticky;
+      margin-top: 15vh;
+      top: 15vh;
     }
 
     @media  (max-width: 766px) {
-      /* @media  (max-width: 576px) { */
       #about-me h1{
-        margin-top: 45vh;
+        top: 50vh;
+        margin-top: 50vh;
       }
     }
 
     #about-me p{
       padding-right: 5vh;
+      margin-bottom: 3rem;
       font-size: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
       color: #ffffff;
       text-align: justify;
     }
+
+
+    #about-me span{
+      padding-right: 5vh;
+      font-size: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
+      color: #ffffff;
+      text-align: justify;
+      margin-bottom: 5vh;
+    }
+
+    @media  (max-width: 766px) {
+      #about-me span{
+        margin-top: 5vh;
+      }
+    }
+
+    @media  (max-width: 766px) {
+      #about-me p,
+      #about-me span{
+        padding-left: 5vw;
+        padding-right: 5vw;
+      }
+    }
+
+
+    #about-me #button-container {
+      display: flex;
+      width: 75%;
+      gap: 10px;
+      z-index: 3;
+      padding: 10px 20px;
+      --b: 3px;   /* the border thickness */
+      --h: 3rem; /* the height */
+    }
+
+    @media  (max-width: 766px) {
+      #about-me #button-container { 
+        margin-inline: auto;
+
+      }
+    }
+    
+    #about-me #button-container  button {
+      /* --_c: #88C100; */
+      --_c: #61efff;
+      flex: calc(.75 + var(--_s,0));
+      min-width: 0;
+      font-size: clamp(0.8rem, 0.7515rem + 0.2071vw, 1rem);
+      font-weight: bold;
+      overflow: hidden;
+      height: var(--h);
+      cursor: pointer;
+      color: var(--_c);
+      border: var(--b) solid var(--_c);
+      background: 
+        conic-gradient(at calc(100% - 1.3*var(--b)) 0,var(--_c) 209deg, #0000 211deg) 
+        border-box;
+      clip-path: polygon(0 0,100% 0,calc(100% - 0.577*var(--h)) 100%,0 100%);
+      padding: 0 calc(0.288*var(--h)) 0 0;
+      margin: 0 calc(-0.288*var(--h)) 0 0;
+      transition: flex .4s, color 1s;
+    }
+
+    #about-me #button-container  button + button {
+      --_c: #43dca1;
+      flex: calc(1.25 + var(--_s,0));
+      background: 
+        conic-gradient(from -90deg at calc(1.3*var(--b)) 100%,var(--_c) 119deg, #0000 121deg) 
+        border-box;
+      clip-path: polygon(calc(0.577*var(--h)) 0,100% 0,100% 100%,0 100%);
+      margin: 0 0 0 calc(-0.288*var(--h));
+      padding: 0 0 0 calc(0.288*var(--h));
+    }
+
+    /* #about-me #button-container button:focus-visible {
+      outline-offset: calc(-2*var(--b));
+      outline: calc(var(--b)/2) solid #000;
+      background: none;
+      clip-path: none;
+      margin: 0;
+      padding: 0;
+    }
+    #about-me #button-container button:focus-visible + button {
+      background: none;
+      clip-path: none;
+      margin: 0;
+      padding: 0;
+    }
+    #about-me #button-container button:has(+ button:focus-visible) {
+      background: none;
+      clip-path: none;
+      margin: 0;
+      padding: 0;
+    } */
+
+
+    #about-me #button-container button::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      top: 0;
+      left: -40px;
+      transform: skewX(45deg);
+      background-color: #61efff;
+      /* background-color: #676969; */
+      z-index: -1;
+      transition: all 2s linear;
+    }
+
+    /* NOTE THE POSITIONING OF + */
+
+    #about-me #button-container button + button::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      top: 0;
+      left: -40px;
+      transform: skewX(45deg);
+      background-color: #43dca1;
+      z-index: -1;
+      transition: all 2s linear;
+    }
+
+    #about-me #button-container button:hover::before {
+      width: 160%;
+    }
+
+    #about-me #button-container button:hover::before + button {
+      width: 160%;
+    }
+
+    #about-me #button-container button:hover{
+      color: #040a0d;
+      transition: all 1s;
+    }
+
+    #about-me button:hover,
+    #about-me button:active:not(:focus-visible) {
+      --_s: .75;
+    }
+    #about-me button:active {
+      box-shadow: inset 0 0 0 100vmax var(--_c);
+      color: #fff;
+      transition: 100ms linear;
+      transform: scale(0.90);
+      
+    }
+    
+    
+    
 
 /*================== Tech Stack ==================*/
 
@@ -576,7 +745,6 @@
         color: #66fcf1;
       }
     }
-
 
 
     #tech-stack h1{
@@ -762,11 +930,11 @@
 
     #tech-stack .btn {
       margin-top: 5vh;
-
+      --bs-btn-border-radius: 0;
       color: #61efff;
       text-transform: uppercase;
       text-decoration: none;
-      border: 4px solid #61efff;
+      border: 3px solid #61efff;
       padding: 10px 20px;
       font-size: clamp(0.5rem, 0.3786rem + 0.5178vw, 1rem);
       font-weight: bold;

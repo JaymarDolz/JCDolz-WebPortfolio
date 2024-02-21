@@ -156,20 +156,23 @@
           <h1>ABOUT ME</h1>
         </div>
         <div class="d-flex flex-column pb-4" id="content">
-          <!-- <h1 class="my-4">ABOUT ME</h1> -->
-          <p class="my-4">
-            I’m an experienced Electrical Engineer transitioning to Full-Stack Web Development with a strong foundation in problem-solving and analytical thinking.
+          <!-- <div id="sticky-content"> -->
+          <p>
+            I’m an Electrical Engineer transitioning to Full-Stack Web Developer with a strong foundation in problem-solving and analytical thinking.
           </p>
-          <p class="my-4">
-            I am also a creative graphic designer with proficiency in Adobe Photoshop. Having learned front-end technologies like HTML5, CSS, and Bootstrap, I bring a unique blend of analytical and creative expertise. Additionally, I have acquired skills in Git version control, and my back-end proficiency includes MongoDB, Express.js, Node.js, React.js, and Postman for comprehensive web development.
+          <p>
+            Additionally, I am a creative graphic designer proficient in Adobe Photoshop, enhancing my ability to merge analytical and creative expertise. Having delved into front-end technologies like HTML5, CSS, and Bootstrap, I offer a unique blend of skills. Alongside, I possess proficiency in Git version control and back-end technologies including MongoDB, Express.js, Node.js, React.js, and Postman, ensuring comprehensive web development capabilities.
           </p>
-          <p class="my-4">
-            I am also a creative graphic designer with proficiency in Adobe Photoshop. Having learned front-end technologies like HTML5, CSS, and Bootstrap, I bring a unique blend of analytical and creative expertise. Additionally, I have acquired skills in Git version control, and my back-end proficiency includes MongoDB, Express.js, Node.js, React.js, and Postman for comprehensive web development.
+          <p>       
+            Despite my experience as a project engineer for multiple companies, where I handled tasks such as reviewing electrical systems, overseeing installations, and actively participating in meetings, my heart lies in technology and creating things that work. This deep love for innovation and problem-solving led me to enroll in a coding bootcamp, taking a step closer to following my passion beyond engineering.
           </p>
-          <p class="my-4">
-            I am also a creative graphic designer with proficiency in Adobe Photoshop. Having learned front-end technologies like HTML5, CSS, and Bootstrap, I bring a unique blend of analytical and creative expertise. Additionally, I have acquired skills in Git version control, and my back-end proficiency includes MongoDB, Express.js, Node.js, React.js, and Postman for comprehensive web development.
-          </p>
-
+          <span>
+            I'm now actively seeking a role that merges my technical expertise with my newfound love for coding, aspiring to find fulfillment by aligning my work with my true passion and making significant contributions to the tech industry.
+          </span>
+          <div class="my-4" id="button-container">
+            <button id="btn-1">VIEW CV</button>
+            <button id="btn-2">DOWNLOAD CV</button>
+          </div>
         </div>
       </div>
     </div>
@@ -231,6 +234,22 @@
               <li>
                 Nodejs
                 <img src="./images/tech stack/nodejs.png" alt="NodeJS Logo">
+              </li>
+              <li>
+                AWS
+                <img src="./images/tech stack/aws.png" alt="AWS Logo">
+              </li>
+              <li>
+                API
+                <img src="./images/tech stack/api.png" alt="API Logo">
+              </li>
+              <li>
+                Canva
+                <img src="./images/tech stack/canva.png" alt="Canva Logo">
+              </li>
+              <li>
+                Photoshop
+                <img src="./images/tech stack/photoshop.png" alt="Canva Logo">
               </li>
             </ul>
         </div>
@@ -350,6 +369,32 @@
     }
   </script>
   <!-- End of Infinite Scroll -->
+
+  <script>
+    // CHAT GPT
+    // PROBLEM:  calculate the height of an element in relation with other elements in css.
+    // Achieving this with pure CSS alone is not feasible because CSS doesn't provide a way to dynamically calculate heights based on the content of other elements. 
+
+    // Wait for the document to be fully loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get references to the paragraphs
+        const paragraphs = document.querySelectorAll("#about-me-container p");
+
+        const contentMarginTop = parseFloat(window.getComputedStyle(document.getElementById("about-me").querySelector("#content")).marginTop);
+
+        // Initialize total height variable with margin from #about-me #content
+        let totalHeight = contentMarginTop;
+
+        // Loop through paragraphs to calculate total height
+        paragraphs.forEach(paragraph => {
+            totalHeight += paragraph.offsetHeight; // Height of the paragraph
+            totalHeight += parseFloat(window.getComputedStyle(paragraph).marginBottom); // Margin bottom
+        });
+
+        // Set the height of content-header
+        document.getElementById("content-header").style.height = totalHeight + "px";
+    });
+</script>
 
 
 </body>
