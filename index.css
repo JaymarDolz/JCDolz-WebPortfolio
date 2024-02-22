@@ -5,6 +5,26 @@
 	font-family: 'Varela Round', sans-serif;                        
 }
 
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 /* color scheme
     Electric Blue: 66fcf1
     dark CYAN: 45a29e
@@ -481,11 +501,13 @@
       background-attachment: fixed;
     }  
 
+
+    
+
     @media  (max-width: 766px) {
       #about-me #content{
         margin-top: 70vh;
         margin-bottom: -25vh;
-
         background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 55%, rgb(255, 255, 255) 60%, rgb(255, 255, 255) 70%, white 100%);
         -webkit-background-clip: text;
         background-clip: text;
@@ -493,24 +515,12 @@
         background-attachment: fixed;
       }  
     }
-
     #about-me #content-header{
       z-index: 3;
       position: absolute;
       top: 0;
       --bs-gutter-x: 0px;
     }
-
-
-
-
-    #about-me #content > p{
-      color: transparent;
-    }
-
-
- 
-
     #about-me h1{
       font-size: clamp(1.5rem, 1.1359rem + 1.5534vw, 3rem);
       font-family: 'HvDTrial Brandon Grotesque', sans-serif;
@@ -531,7 +541,7 @@
       padding-right: 5vh;
       margin-bottom: 3rem;
       font-size: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
-      color: #ffffff;
+      color: transparent;
       text-align: justify;
     }
 
@@ -542,6 +552,7 @@
       color: #ffffff;
       text-align: justify;
       margin-bottom: 5vh;
+      -webkit-text-stroke: .4px #030406;
     }
 
     @media  (max-width: 766px) {
@@ -561,10 +572,10 @@
 
     #about-me #button-container {
       display: flex;
-      width: 75%;
+      width: 70%;
       gap: 10px;
       z-index: 3;
-      padding: 10px 20px;
+
       --b: 3px;   /* the border thickness */
       --h: 3rem; /* the height */
     }
@@ -576,6 +587,8 @@
       }
     }
     
+    /* BUTTON FROM https://codepen.io/t_afif/pen/XWEPxPv*/
+
     #about-me #button-container  button {
       /* --_c: #88C100; */
       --_c: #61efff;
@@ -677,8 +690,8 @@
       --_s: .75;
     }
     #about-me button:active {
-      box-shadow: inset 0 0 0 100vmax var(--_c);
-      color: #fff;
+      /* box-shadow: inset 0 0 0 100vmax var(--_c);
+      color: #fff; */
       transition: 100ms linear;
       transform: scale(0.90);
       
@@ -833,22 +846,6 @@
         var(--_animation-direction, forwards) linear infinite;
       }
     }
-   
-    .scroller[data-direction="right"]{
-      --_animation-direction: reverse;
-    }
-    
-    .scroller[data-direction="left"]{
-      --_animation-direction: forwards;
-    }
-    
-    .scroller[data-speed="slow"]{
-      --_animation-duration: 60s
-    }
-    
-    .scroller[data-speed="fast"]{
-      --_animation-duration: 20s
-    }
     
     
     @keyframes scroll {
@@ -970,3 +967,7 @@
       transition: 100ms linear;
       transform: scale(0.95);
     }
+
+
+/*================== PROJECTS ==================*/
+

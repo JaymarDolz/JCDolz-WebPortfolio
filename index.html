@@ -30,10 +30,10 @@
     <div class="container-fluid ms-3">
       <!-- logo -->
       <div class="d-flex">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#hero" onclick="lenis.scrollTo(0)">
           <img src="./images/navbarlogo.png" alt="Logo" class="align-text-center">
         </a>
-        <a class="navbar-brand align-text-center" id="nav-name">
+        <a class="navbar-brand align-text-center" href="#hero" onclick="lenis.scrollTo(0)" data-lenis-prevent id="nav-name">
           Jaymar Dolz
         </a>
       </div>
@@ -53,13 +53,13 @@
           <!-- items -->
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link" href="#about-me">About Me</a>
-            </li>       
-            <li class="nav-item">
-              <a class="nav-link" href="#tech-stack">Tech Stack</a>
+              <a class="nav-link" href="#about-me" onclick="lenis.scrollTo('#about-me')">About Me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
+              <a class="nav-link" href="#tech-stack" onclick="lenis.scrollTo('#tech-stack')">Tech Stack</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects" onclick="lenis.scrollTo('#projects')">Projects</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Digital Art</a>
@@ -155,6 +155,7 @@
         <div class="d-flex flex-column" id="content-header">
           <h1>ABOUT ME</h1>
         </div>
+
         <div class="d-flex flex-column pb-4" id="content">
           <!-- <div id="sticky-content"> -->
           <p>
@@ -283,6 +284,13 @@
   </section>
   <!-- Tech Stack Section -->
 
+  <!-- Projects Section -->
+  <!-- <section class="container-fluid" id="projects">
+    <div class="container">
+
+    </div>
+  </section> -->
+  <!-- Projects Section -->
 
 
 
@@ -307,9 +315,36 @@
       techstack bg
       https://pngtree.com/freebackground/technical-abstract-technology-background-with-geometric-shape_1242357.html
    -->
+   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
+  <!-- Smooth Scrolling -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.36/dist/lenis.min.js"></script> 
+
+
+  <!-- Smooth Scrolling -->
+  <script>
+    const lenis = new Lenis()
+
+    lenis.on('scroll', (e) => {
+      console.log(e)
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    function scrollToTop() {
+    lenis.scrollTo(0, { duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    }
+
+
+    requestAnimationFrame(raf)
+  </script>
+  <!-- Smooth Scrolling -->
+  
   <!-- Text Animation -->
   <script>
     const txts=document.querySelector("#animate-text").children
@@ -370,6 +405,7 @@
   </script>
   <!-- End of Infinite Scroll -->
 
+  <!-- About Me Header Height Adjust -->
   <script>
     // CHAT GPT
     // PROBLEM:  calculate the height of an element in relation with other elements in css.
@@ -394,8 +430,8 @@
         // Set the height of content-header
         document.getElementById("content-header").style.height = totalHeight + "px";
     });
-</script>
-
+  </script>
+  <!-- End of About Me Header Height Adjust -->
 
 </body>
 </html>
