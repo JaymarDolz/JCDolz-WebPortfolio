@@ -1031,28 +1031,73 @@ html.lenis {
       top: 0vh;
       z-index: 4;
       /* border: 5px solid blue; */
-      height: 100vh;
+      height: 300vh;
       background-color: #04080b;
+      overflow: hidden;
     }
 
+    #works-slidersmall1,
+    #works-slidersmall2{
+      position: absolute;
+      top: 0;
+      right: .0;
+      z-index: 6;
+      background-image: url('./images/parallaxbg1.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 350vh;
+      width: 150vw;
+      filter: blur(7px);
+      animation: scrollY 150s linear infinite;
+      flex-wrap: nowrap;
+    }
 
+    #works-slidersmall2{
+      top: 350vh;
+    }
 
-/*================== PROJECTS ==================*/
+    #works-sliderlarge1,
+    #works-sliderlarge2{
+      position: absolute;
+      top: 0vh;
+      right: -15vh;
+      z-index: 5;
+      background-image: url('./images/parallaxbg2.png');
+      background-size: cover;
+      height: 350vh;
+      width: 150vw;
+      opacity: 40%;
+      filter: blur(10px);
+      animation: scrollY 200s linear infinite;
+      flex-wrap: nowrap;
+    }
 
+    #works-sliderlarge2{
+      top: 350vh;
+    }
 
+    @keyframes scrollY {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
 
+/*================== WORKS ==================*/
 
     /* TYPE WRITER ANIMATION https://www.youtube.com/watch?v=yefgBA1CecI */
 
-  #projects {
+  #works {
     position: relative;
     top: 0vh;
-    z-index: 4;
+    z-index: 6;
     height: 100vh;
-    overflow: clip;
+    /* overflow: clip; */
   }
 
-  #projects #content-header h1{
+  #works #content-header h1{
     font-size: clamp(2rem, 1.2718rem + 3.1068vw, 5rem);
     font-family: 'HvDTrial Brandon Grotesque', sans-serif;
     color: #66fcf2;
@@ -1061,12 +1106,12 @@ html.lenis {
   }
 
   @media  (max-width: 766px) {
-    #projects #content-header h1{
+    #works #content-header h1{
       margin-top: 25vh;
     }
   }
   
-  #projects #img-container{
+  #works #img-container{
     position: absolute;
     top: 0;
     left: 0;
@@ -1074,7 +1119,7 @@ html.lenis {
     height: 100vh;
   }
 
-  #projects #img-container img{
+  #works #img-container img{
     margin-top: 20vh;
     width: auto;
     height: 40vh;
@@ -1083,14 +1128,14 @@ html.lenis {
 
 
   @media  (max-width: 766px) {
-    #projects #img-container img{
+    #works #img-container img{
       height: 25vh;
     }
   }
   
 
 
-   #projects #anim-container{
+  #works #anim-container{
     /* position: absolute;
     top: 0;
     left: 0;
@@ -1102,9 +1147,9 @@ html.lenis {
     width: 100vw;
     height: 100vh;
     padding: 5vw;
-   }
+    }
 
-  #projects #anim-container #animationOne{
+    #works #anim-container #animationOne{
     position: absolute;
     bottom: 35vh;
     right: 55vw;
@@ -1116,153 +1161,162 @@ html.lenis {
   }
 
   
-  #projects #anim-container #animationTwo{
-    position: absolute;
-    bottom: 30vh;
-    left: 58vw;
-    margin-top: 20vh;
-    width: auto;
-    height: 25vh;
-    z-index: 0;
-    animation: floating2 5s ease-in-out infinite;
-  }
-
-
-  #projects #typewriter{
-    margin-right: 1rem;
-    display: inline-block;
-    position: absolute;
-    padding: 1rem 2rem;
-    border: 3px solid #61efff;
-    border-radius: 10px;
-    background-color: hsla(210, 25%, 2%, 0.6);
-    bottom: 60vh;
-    left: 50vw;
-    animation: floating 4s ease-in-out infinite;
-  }
-
-  #projects #typewriter p{
-    margin-bottom: 0px !important;
-    font-family: monospace;
-    font-size: clamp(1.2rem, 0.6359rem + 1.5534vw, 2.5rem);
-    color: #ffffff;
-    border-right: 2px solid white;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 6s steps(12) infinite, cursor .4s step-end infinite alternate;
-
-  }
-  
-  @keyframes floating {
-    0% { transform: translate(0,  0px); }
-    50%  { transform: translate(0, 15px); }
-    100%   { transform: translate(0, -0px); }    
-  }
-
-  @keyframes floating2 {
-    0% { transform: translate(0,  -0px); }
-    50%  { transform: translate(0, -15px); }
-    100%   { transform: translate(0, 0px); }    
-  }
-
-  @keyframes cursor{
-    50% { border-color: transparent}
-  }
-
-  @keyframes typing{
-      0% { width: 0; }
-      25% { width: 100%; }
-      100% { width: 100%; }
-  }
-
-  @media  (max-width: 766px) {
-    #projects #anim-container #animationOne{
-      height: 20vh;
+    #works #anim-container #animationTwo{
+      position: absolute;
+      bottom: 30vh;
+      left: 58vw;
+      margin-top: 20vh;
+      width: auto;
+      height: 25vh;
+      z-index: 0;
+      animation: floating2 5s ease-in-out infinite;
     }
 
-    #projects #anim-container #animationTwo{
-      height: 15vh;
-    }
 
-    #projects #typewriter{
-      bottom: 50vh;
+    #works #typewriter{
+      margin-right: 1rem;
+      display: inline-block;
+      position: absolute;
+      padding: 1rem 2rem;
+      border: 3px solid #61efff;
+      border-radius: 10px;
+      background-color: hsla(210, 25%, 2%, 0.6);
+      bottom: 60vh;
       left: 50vw;
-      padding: .5rem 1rem;
+      animation: floating 4s ease-in-out infinite;
     }
-    
-  }
+
+    #works #typewriter p{
+      margin-bottom: 0px !important;
+      font-family: monospace;
+      font-size: clamp(1.2rem, 0.6359rem + 1.5534vw, 2.5rem);
+      color: #ffffff;
+      border-right: 2px solid white;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 6s steps(12) infinite, cursor .4s step-end infinite alternate;
+    }
   
+    @keyframes floating {
+      0% { transform: translate(0,  0px); }
+      50%  { transform: translate(0, 15px); }
+      100%   { transform: translate(0, -0px); }    
+    }
+
+    @keyframes floating2 {
+      0% { transform: translate(0,  -0px); }
+      50%  { transform: translate(0, -15px); }
+      100%   { transform: translate(0, 0px); }    
+    }
+
+    @keyframes cursor{
+      50% { border-color: transparent}
+    }
+
+    @keyframes typing{
+        0% { width: 0; }
+        25% { width: 100%; }
+        100% { width: 100%; }
+    }
+
+    @media  (max-width: 766px) {
+      #works #anim-container #animationOne{
+        height: 20vh;
+      }
+
+      #works #anim-container #animationTwo{
+        height: 15vh;
+      }
+
+      #works #typewriter{
+        bottom: 55vh;
+        left: 50vw;
+        padding: .5rem 1rem;
+      }
+    }
+  
+    #works #glow-overlay {
+      position: absolute;
+      bottom: 40vh;
+      left: 30vw;
+      width: 40vw;
+      height: 40vh;
+      background-image: url('./images/overlay-glow.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+      opacity: 30%;
+      filter: blur(10vw);
+      mix-blend-mode: soft-light;
+    }
+
+    #works #glow-overlay::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #19beff;
+      z-index: 1;
+    }
 
 
+    #works #glow-overlay-2 {
+      position: absolute;
+      bottom: 25vh;
+      left: 35vw;
+      width: 30vw;
+      height: 30vh;
+      background-image: url('./images/overlay-glow.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+      opacity: 40%;
+      filter: blur(10vw);
+      mix-blend-mode: hard-light;
+    }
 
-  #projects #glow-overlay {
-    position: absolute;
-    bottom: 40vh;
-    left: 30vw;
-    width: 40vw;
-    height: 40vh;
-    background-image: url('./images/overlay-glow.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: -1;
-    opacity: 30%;
-    filter: blur(10vw);
-    mix-blend-mode: soft-light;
-  }
-
-  #projects #glow-overlay::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #19beff;
-    z-index: 1;
-}
-
-
-#projects #glow-overlay-2 {
-  position: absolute;
-  bottom: 25vh;
-  left: 35vw;
-  width: 30vw;
-  height: 30vh;
-  background-image: url('./images/overlay-glow.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: -1;
-  opacity: 40%;
-  filter: blur(10vw);
-  mix-blend-mode: hard-light;
-}
-
-#projects #glow-overlay-2::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #19e0ff;
-  z-index: 1;
-}
+    #works #glow-overlay-2::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #19e0ff;
+      z-index: 1;
+    }
 
 
-@media  (max-width: 766px) {
-  #projects #glow-overlay {
-    top: 15vh;
-    left: 20vw;
-    width: 60vw;
-    height: 70vh;
-    opacity: 15%;
-  }
-  #projects #glow-overlay-2 {
-    top: 40vh;
-    left: 35vw;
-    width: 30vw;
-    height: 30vh;
-    opacity: 50%;
-  }
-}
+    @media  (max-width: 766px) {
+      #works #glow-overlay {
+        top: 15vh;
+        left: 20vw;
+        width: 60vw;
+        height: 70vh;
+        opacity: 15%;
+      }
+      #works #glow-overlay-2 {
+        top: 40vh;
+        left: 35vw;
+        width: 30vw;
+        height: 30vh;
+        opacity: 50%;
+      }
+    }
+
+
+/*================== WORKS ==================*/
+
+    /* TYPE WRITER ANIMATION https://www.youtube.com/watch?v=yefgBA1CecI */
+
+    #projects {
+      position: relative;
+      top: 0vh;
+      z-index: 4;
+      height: 100vh;
+      overflow: clip;
+    }
+  
