@@ -24,13 +24,15 @@
 </head>
 
 <body>
-
+  
   <!-- navbar start -->
   <nav class="navbar navbar-expand-md fixed-top bg-dark border-body" data-bs-theme="dark">
     <div class="container-fluid ms-3">
       <!-- logo -->
       <div class="d-flex">
-        <a class="navbar-brand" href="#hero" onclick="lenis.scrollTo(0)">
+        <!-- onclick="lenis.scrollTo(0)" -->
+        <!-- instead of going to top refresh the page -->
+        <a class="navbar-brand" href="/" >
           <img src="./images/navbarlogo.png" alt="Logo" class="align-text-center">
         </a>
         <a class="navbar-brand align-text-center" href="#hero" onclick="lenis.scrollTo(0)" data-lenis-prevent id="nav-name">
@@ -56,7 +58,9 @@
               <a class="nav-link" href="#about-me" onclick="lenis.scrollTo('#about-me')">About Me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#tech-stack" onclick="lenis.scrollTo('#tech-stack')">Tech Stack</a>
+              <!-- <a class="nav-link" href="#tech-stack" onclick="lenis.scrollTo('#tech-stack')">Tech Stack</a> -->
+              <!-- <a class="nav-link" href="#tech-stack" onclick="lenis.scrollTo('#projects', {offset:-930})">Tech Stack</a> -->
+              <a class="nav-link" href="#tech-stack" onclick="scrollToTechStack()">Tech Stack</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#projects" onclick="lenis.scrollTo('#projects')">Projects</a>
@@ -116,7 +120,7 @@
       </div>
 
       <div class="order-1 order-md-2 col-12 col-md-8 d-flex align-items-end  justify-content-center" id="hero-profile">
-        <img src="./images/myprofile.png" alt="Jaymar Dolz Profile">
+        <img src="./images/myprofile.webp" alt="Jaymar Dolz Profile">
       </div>
       <div id="glow-overlay">
       </div>
@@ -124,6 +128,10 @@
 
   </section>
   <!-- End of Hero Section -->
+
+  
+
+
 
   <!-- About Me Section -->
   <section class="container-fluid" id="about-me">
@@ -179,118 +187,143 @@
     </div>
   </section>
   <!-- End of About Me Section -->
-
+ 
   <!-- Tech Stack Section -->
-  <section class="container-fluid" id="tech-stack">
-    <div class="container">
-      <p id="text-overlay">
-          TECH STACK TECH STACK TECH STACK TECH STACK
-      </p>
-    </div>
-    <div class="container">
-      <div id="overlay"></div>
-    </div>
-    <div class="d-flex flex-column">
-      <h1 class="d-flex justify-content-center text-center" id="content-header">TECH STACK</h1>
-
-      <div class="d-flex justify-content-center text-center">
-        <div class="scroller">
-            <ul class="scroller-inner">
-              <li>
-                HTML
-                <img src="./images/tech stack/html5.png" alt="HTML logo">
-              </li>
-              <li>
-                CSS3
-                <img src="./images/tech stack/css3.png" alt="CSS logo">
-              </li>
-              <li>
-                Bootstrap
-                <img src="./images/tech stack/bootstrap.png" alt="Bootstrap logo">
-              </li>
-              <li>
-                Figma
-                <img src="./images/tech stack/figma.png" alt="Figma logo">
-              </li>
-              <li>
-                Git Basics
-                <img src="./images/tech stack/git.png" alt="Git Logo">
-              </li>
-              <li>
-                JavaScript
-                <img src="./images/tech stack/js.png" alt="JavaScript Logo">
-              </li>
-              <li>
-                MongoDB
-                <img src="./images/tech stack/mongDB.png" alt="mongoDB Logo">
-              </li>
-              <li>
-                Postman
-                <img src="./images/tech stack/postman.png" alt="Postman Logo">
-              </li>
-              <li>
-                Expressjs
-                <img src="./images/tech stack/expressjs.png" alt="Expressjs Logo">
-              </li>
-              <li>
-                Nodejs
-                <img src="./images/tech stack/nodejs.png" alt="NodeJS Logo">
-              </li>
-              <li>
-                AWS
-                <img src="./images/tech stack/aws.png" alt="AWS Logo">
-              </li>
-              <li>
-                API
-                <img src="./images/tech stack/api.png" alt="API Logo">
-              </li>
-              <li>
-                Canva
-                <img src="./images/tech stack/canva.png" alt="Canva Logo">
-              </li>
-              <li>
-                Photoshop
-                <img src="./images/tech stack/photoshop.png" alt="Canva Logo">
-              </li>
-            </ul>
-        </div>
+  <div id="container-tech">
+    <section class="container-fluid" id="tech-stack">
+      <div class="container">
+        <p id="text-overlay">
+            TECH STACK TECH STACK TECH STACK TECH STACK
+        </p>
       </div>
-
-      <div class="d-flex flex-column align-items-center justify-content-end" id="content">
-        <h2 class="d-flex justify-content-center text-center">
-          MY <span> CREDENTIALS</span>
-        </h2>
-        
-        <div class="d-flex justify-content-center">
-          <p class="text-center">
-            Acquired proficiency through <a href="https://zuitt.co/" target="_blank">Zuitt's</a> comprehensive coding bootcamp, demonstrating expertise in a range of technologies including <span>Git, HTML, CSS, Bootstrap, JavaScript, MongoDB, Node.js, Express.js, Postman, and React.js</span> for Full-stack Web Development, with additional experience in <span>Figma, ChatGPT,</span> <a href="https://share.zertify.zuitt.co/certificate/0e8ce65f-d00f-4043-a062-2778c2982e40" target="_blank"> AWS,</a> and an understanding of <span>Software Development Lifecycles.</span>
-          </p>
-        </div>
-        <div class="d-flex justify-content-center">
-          <a class="btn" href="https://share.zertify.zuitt.co/certificate/fb7133f2-6e6d-4f3d-827f-9ecb33da4d97/" target="_blank">
-            view certificate
-          </a>
-        </div>
+      <div class="container">
+        <div id="overlay"></div>
       </div>
+      <div class="d-flex flex-column">
+        <h1 class="d-flex justify-content-center text-center" id="content-header">TECH STACK</h1>
 
+        <div class="d-flex justify-content-center text-center">
+          <div class="scroller">
+              <ul class="scroller-inner">
+                <li>
+                  HTML
+                  <img src="./images/tech stack/html5.png" alt="HTML logo">
+                </li>
+                <li>
+                  CSS3
+                  <img src="./images/tech stack/css3.png" alt="CSS logo">
+                </li>
+                <li>
+                  Bootstrap
+                  <img src="./images/tech stack/bootstrap.png" alt="Bootstrap logo">
+                </li>
+                <li>
+                  Figma
+                  <img src="./images/tech stack/figma.png" alt="Figma logo">
+                </li>
+                <li>
+                  Git Basics
+                  <img src="./images/tech stack/git.png" alt="Git Logo">
+                </li>
+                <li>
+                  JavaScript
+                  <img src="./images/tech stack/js.png" alt="JavaScript Logo">
+                </li>
+                <li>
+                  MongoDB
+                  <img src="./images/tech stack/mongDB.png" alt="mongoDB Logo">
+                </li>
+                <li>
+                  Postman
+                  <img src="./images/tech stack/postman.png" alt="Postman Logo">
+                </li>
+                <li>
+                  Expressjs
+                  <img src="./images/tech stack/expressjs.png" alt="Expressjs Logo">
+                </li>
+                <li>
+                  Nodejs
+                  <img src="./images/tech stack/nodejs.png" alt="NodeJS Logo">
+                </li>
+                <li>
+                  AWS
+                  <img src="./images/tech stack/aws.png" alt="AWS Logo">
+                </li>
+                <li>
+                  API
+                  <img src="./images/tech stack/api.png" alt="API Logo">
+                </li>
+                <li>
+                  Canva
+                  <img src="./images/tech stack/canva.png" alt="Canva Logo">
+                </li>
+                <li>
+                  Photoshop
+                  <img src="./images/tech stack/photoshop.png" alt="Canva Logo">
+                </li>
+              </ul>
+          </div>
+        </div>
 
-    </div>
+        <div class="d-flex flex-column align-items-center justify-content-end" id="content">
+          <h2 class="d-flex justify-content-center text-center">
+            MY <span> CREDENTIALS</span>
+          </h2>
+          
+          <div class="d-flex justify-content-center">
+            <p class="text-center">
+              Acquired proficiency through <a href="https://zuitt.co/" target="_blank">Zuitt's</a> comprehensive coding bootcamp, demonstrating expertise in a range of technologies including <span>Git, HTML, CSS, Bootstrap, JavaScript, MongoDB, Node.js, Express.js, Postman, and React.js</span> for Full-stack Web Development, with additional experience in <span>Figma, ChatGPT,</span> <a href="https://share.zertify.zuitt.co/certificate/0e8ce65f-d00f-4043-a062-2778c2982e40" target="_blank"> AWS,</a> and an understanding of <span>Software Development Lifecycles.</span>
+            </p>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a class="btn" href="https://share.zertify.zuitt.co/certificate/fb7133f2-6e6d-4f3d-827f-9ecb33da4d97/" target="_blank">
+              view certificate
+            </a>
+          </div>
+        </div>
 
-
-
-
-      
-    </div>
-  </section>
+      </div>
+    </section>
+  </div>
   <!-- Tech Stack Section -->
 
-  <!-- Projects Section -->
-  <!-- <section class="container-fluid" id="projects">
-    <div class="container">
 
-    </div>
-  </section> -->
   <!-- Projects Section -->
+  
+  <div id="container-works">
+    <div id="container-pos-works">
+      <section class="container-fluid" id="projects">
+
+        <div class="container">
+          <div class="d-flex justify-content-center text-center" id="content-header">
+            <h1>EXPLORE MY WORK</h1>
+          </div>
+          <div class="d-flex justify-content-center align-items-center" id="img-container">
+            <img class="d-flex justify-content-center align-items-center" src="./images/hellome.webp" alt="Hello Art">
+          </div>
+        </div>
+          <!-- CSS FLOAT  https://www.geeksforgeeks.org/css-floating-animation/
+          -->
+        <div class="d-flex justify-content-center align-items-center" id="anim-container">
+          <img class="d-flex justify-content-center align-items-center" id="animationOne" src="./images/floating-project1-anim.gif" alt="Programming Animation">
+          <img class="d-flex justify-content-center align-items-center" id="animationTwo" src="./images/floating-project2-anim.gif" alt="Programming Animation">
+          <!-- https://www.youtube.com/watch?v=yefgBA1CecI TYPEWRITER -->
+
+          <div id="typewriter">
+            <p>Hello World.</p>
+          </div>
+
+        </div>
+
+        <div id="glow-overlay"></div>   
+        <div id="glow-overlay-2"></div>   
+      </section>
+    </div>
+  </div>
+
+
+
+  <!-- End of Projects Section -->
 
 
 
@@ -313,6 +346,10 @@
   <!-- 
     <a href="https://www.flaticon.com/free-icons" Icons by Freepik </a>
       techstack bg
+
+      <a href="https://www.freepik.com/free-vector/website-creator-concept-illustration_9933427.htm?epik=dj0yJnU9ZDd5dk9aS0hBWHJuQklCb0xHMHFTcDVNVXFzVXctUE8mcD0wJm49b3FZY3g0OU5WUE9aOVRqaXVnQ0tiQSZ0PUFBQUFBR1hkMllj">Image by storyset</a> on Freepik
+      Project thumbnail
+      
       https://pngtree.com/freebackground/technical-abstract-technology-background-with-geometric-shape_1242357.html
    -->
    
@@ -432,6 +469,19 @@
     });
   </script>
   <!-- End of About Me Header Height Adjust -->
-
+  <!-- Tech Stack Scroll Fix -->
+  <script>
+    function scrollToTechStack() {
+      // Get the target element
+      var targetElement = document.querySelector('#projects');
+      
+      // Calculate the negative offset in viewport height
+      var offset = -100 * window.innerHeight / 100; // 10vh
+      
+      // Scroll to the target element with the calculated offset
+      lenis.scrollTo(targetElement, { offset: offset });
+    }
+  </script>
+  <!-- End of Tech Stack Scroll Fix -->
 </body>
 </html>
