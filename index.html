@@ -22,7 +22,6 @@
     <link href="https://fonts.cdnfonts.com/css/hvdtrial-brandon-grotesque?styles=158925" rel="stylesheet">
               
 </head>
-
 <body>
   
   <!-- navbar start -->
@@ -63,7 +62,7 @@
               <a class="nav-link" href="#tech-stack" onclick="scrollToTechStack()">Tech Stack</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#works" onclick="lenis.scrollTo('#works')">Projects</a>
+              <a class="nav-link" href="#works" onclick="lenis.scrollTo('#projects')">Projects</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Digital Art</a>
@@ -285,14 +284,13 @@
 
   <!-- WORKS PROJECTS DIGITAL ART -->
   <div id="container-works">
+    <!-- SLIDER BG ANIMATION -->
+    <div id="works-slidersmall1"></div>
+    <div id="works-slidersmall2"></div>
 
-      <div id="works-slidersmall1"></div>
-      <div id="works-slidersmall2"></div>
-
-      <div id="works-sliderlarge1"></div>
-      <div id="works-sliderlarge2"></div>
-
-
+    <div id="works-sliderlarge1"></div>
+    <div id="works-sliderlarge2"></div>
+    <!-- SLIDER BG ANIMATION -->
     <!-- Explore Works Section -->
     <section class="container-fluid" id="works">
       <div class="container">
@@ -315,16 +313,120 @@
         </div>
 
       </div>
-
+      
       <div id="glow-overlay"></div>   
-      <div id="glow-overlay-2"></div>   
+      <div id="glow-overlay-2"></div>
+      <div id="top-overlay"></div>
+      <div id="bottom-overlay"></div>
     </section>
-
     <!-- Explore Works Section -->
 
+    <!-- Projects Section -->
     <section class="container-fluid" id="projects">
+      <div class="d-flex justify-content-start text-center">
+        <h1 id="section-header">PROJECTS</h1>
+      </div>
 
+      <div class="d-flex justify-content-center align-items-center" id="section-captions">
+        <p>
+          Embark on a journey of creativity and innovation with me! As I eagerly explore opportunities to hone my skills in the tech realm, I'm ready to bring your ideas to vibrant life. From elegant websites to captivating web applications, I'm ready to demonstrate my skills and elevate your projects to new heights.
+        </p>
+      </div>
+
+      <div class="row d-flex align-items-start" id="project-list">
+
+        <div class="col-md-4" id="card-container">
+          <div id="project-item">
+            <div id="thumbnail" id="thumbnail">
+              <img src="./images/project2-thumbnail.webp" alt="ecommerce-website">
+            </div>
+            <div id="content">
+              <a href="https://jaymardolz.github.io/Figma-Mockup-Practice/" target="_blank">
+                <img src="./images/icons/external-link.png" alt="external-link">
+              </a>
+              <div id="content-header">
+                <h1>
+                  FIGMA MOCKUP WEBSITE
+                </h1>
+              </div>
+              <div id="content-description">
+                <p>
+                  In this Project, I utilized Figma to design a static website mockup. Through this exercise, I enhanced my skills in layout design, typography and visual hierarchy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" id="card-container">
+          <div id="project-item">
+          
+            <div id="thumbnail" id="thumbnail">
+              <img src="./images/project1-thumbnail.webp" alt="ecommerce-website">
+            </div>
+            <div id="content">
+              <div id="content-header">
+                <a href="https://zuitt-capstone-ecommerce-client.vercel.app/" target="_blank" id="special-case">
+                  <img src="./images/icons/external-link.png" alt="external-link">
+                </a>
+                <h1>
+                  ECOMMERCE WEBSITE
+                </h1>
+                <p id="special-case-text">
+                  Expected delay in page loading due to utilization of a free API hosting
+                </p>
+              </div>
+              <div id="content-description">
+                <p>
+                  I developed this Capstone Project during my time at Zuitt Bootcamp, utilizing React.js for the frontend and Node.js with Express for the backend. Integrated with MongoDB for database management, resulting in a responsive and feature-packed web application, version-controlled using Git and hosted on AWS, later transitioning to Vercel and Render.
+                </p>
+              </div>
+  
+            </div>
+            
+  
+          </div>
+        </div>
+
+        <div class="col-md-4" id="card-container">
+          <div id="project-item">
+          
+            <div id="thumbnail">
+              <img src="./images/project4-thumbnail.png" alt="Help Me Build My Portfolio">
+            </div>
+  
+              
+            <div id="content">
+              <div id="content-header">
+                <h1>
+                  HELP ME EXPAND MY PORTFOLIO
+                </h1>
+              </div>
+              <div id="content-description">
+                <p>
+                  I'm excited to show my skills and help your projects succeed. With my technical expertise and dedication to coding, I'm here to offer fresh ideas and solutions.
+                </p>
+              </div>
+  
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+
+
+      <div>
+        <p id="text-overlay">PROJECTS PROJECTS PROJECTS</p>
+      </div>
+
+      <div id="top-overlay">
+      </div>
+      <!-- <div id="content-overlay">
+      </div> -->
     </section>
+    <!-- Projects Section -->
+
   </div>
   <!-- END OF WORKS PROJECTS DIGITAL ART -->
 
@@ -350,6 +452,7 @@
 
   <!-- ATTRIBUTES -->
   <!-- 
+    https://www.iconfinder.com/icons/6643247/external_link_url_icon
     <a href="https://www.flaticon.com/free-icons" Icons by Freepik </a>
       techstack bg
 
@@ -490,4 +593,5 @@
   </script>
   <!-- End of Tech Stack Scroll Fix -->
 </body>
+
 </html>
