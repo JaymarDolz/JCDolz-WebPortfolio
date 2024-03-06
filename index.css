@@ -65,6 +65,34 @@ html.lenis {
     }
 
 
+/*================ Under Construction Banner =============*/
+#banner-bottom{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  padding: .5vh;
+  width: 100vw;
+  background-color: rgb(55, 132, 255);
+  z-index: 999;
+  padding-inline: 5vw;
+}
+
+#banner-bottom p{
+  display: flex;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 0.6786rem + 0.5178vw, 1.3rem);
+  color: #000000;
+  margin: 0px !important;
+  justify-content: center;
+
+}
+
+
+/*================ Under Construction Banner =============*/
+
+
 /*================ Hero Section =============*/
     #hero{
       position: fixed; 
@@ -322,6 +350,20 @@ html.lenis {
       transition: 100ms linear;
       transform: scale(0.95);
     }
+
+
+    #hero #content #call-to-action p{
+      font-size: clamp(1rem, 1.1359rem + 1.5534vw, 1.5rem);
+      color: #66fcf1;
+    }
+
+
+
+
+
+
+
+
 
 /*========== about-me/ tech-stack container ===========*/
 
@@ -688,15 +730,67 @@ html.lenis {
       --_s: .75;
     }
     #about-me button:active {
-      /* box-shadow: inset 0 0 0 100vmax var(--_c);
-      color: #fff; */
-      transition: 100ms linear;
+      transition: transform .1s linear;
       transform: scale(0.90);
-      
     }
     
     
-    
+    /*======== MODAL =========*/
+
+    #resume{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-header{
+      border-bottom: 2px solid rgb(95, 95, 95);
+    }
+
+    .modal-footer{
+      border-top: 2px solid rgb(95, 95, 95);
+    }
+
+    .modal #label{
+      color: white;
+    }
+
+    .modal .modal-header button{
+      color: white;
+    }
+
+    #resume iframe{
+      width: 50vw;
+      height: 70vh;
+    }
+
+    .modal-dialog{
+      max-width: 50%; 
+      height: 80%;
+    }
+
+    .modal-content {
+      background-color: #323639;
+    }
+
+    @media  (max-width: 766px) {
+      .modal-dialog{
+        max-width: 80vw; 
+        height: 40%;
+        margin-inline: auto;
+        margin-top: 10vh;
+      }
+
+      #resume iframe{
+        width: 100%;
+        height: 50vh;
+      }
+    }
+
+
+
+
+
 
 /*================== Tech Stack ==================*/
 
@@ -1396,7 +1490,39 @@ html.lenis {
         color: #66fcf1;
       }
     }
-    
+
+    #projects #glow-overlay {
+      position: absolute;
+      bottom: 30vh;
+      left: 10vw;
+      width: 80vw;
+      height: 60vh;
+      background-image: url('./images/overlay-glow.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+      filter: blur(10vw);
+      mix-blend-mode: hard-light;
+      opacity: 35%;
+    }
+
+    @media  (max-width: 766px) {
+      #projects #glow-overlay {
+        display: none;
+      }
+    }
+
+    #projects #glow-overlay::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #19e0ff;
+      z-index: 1;
+    }
+
     #projects #top-overlay{
       position: absolute;
       top: 0;
@@ -1498,11 +1624,15 @@ html.lenis {
 
     #projects #card-container #project-item{
       margin-bottom: 5vh;
-      background: #10343d;
+      background: #00475d;
       /* background-color: linear-gradient(16deg, rgba(13,44,53,1) 15%, rgba(44,162,198,1) 70%, rgba(48,252,240,1) 100%); */
       border-radius: 2vh;
       width: 100%;
       padding-bottom: 2vh;
+      
+      -webkit-box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.3);
     }
     
 
@@ -1554,17 +1684,18 @@ html.lenis {
     }
 
     #projects #content #special-case:hover::before {
-      content: "Expected delay in page loading due to utilization of a free API hosting.";
+      content: "Expected delay in page loading due to utilization of a free API hosting service.";
       position: absolute;
-      top: -3vh; 
-      left: 60%;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
+      top: -6%;
+      left: 1.5rem;
+      background-color: #64fcf4;
+      color: rgb(0, 0, 0);
       padding: 5px;
       border-radius: 5px;
       font-size: 1rem;
-      width: max-content;
+      /* width: max-content; */
       z-index: 999;
+      width: 15vw;
       height: auto;
     }
 
@@ -1580,7 +1711,7 @@ html.lenis {
     }
 
     #projects #content #content-header h1{
-      font-size: clamp(1rem, 0.6359rem + 1.5534vw, 2.5rem);
+      font-size: clamp(1rem, 0.6359rem + 1.2vw, 2.5rem);
       font-family: 'HvDTrial Brandon Grotesque', sans-serif;
       color: #ffffff;
     }
@@ -1603,7 +1734,7 @@ html.lenis {
     
       opacity: 0;
       margin-top: -40vh;
-      transition:  0.3s ease-in-out;
+      transition:  0.1s ease-in-out;
     }
 
 
@@ -1631,7 +1762,7 @@ html.lenis {
 
     
     #projects #card-container:hover #content p{
-      transition: opacity .3s ease-in-out, margin-top 0.3s ease-in-out;
+      transition: opacity .4s ease-in-out, margin-top 0.3s ease-in-out;
       opacity: 1;
       margin-top: 1em;
     }

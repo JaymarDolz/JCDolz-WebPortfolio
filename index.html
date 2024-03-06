@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jaymar Dolz</title>
 
+  <link rel="shortcut icon" type="x-icon" href="./images/navbarlogo.png">
+
   <!-- BOOTSTRAP -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -24,6 +26,16 @@
 </head>
 <body>
   
+  <!-- under-construction banner -->
+  <div id="banner-bottom">
+    <p>
+      While my web portfolio is under construction, please don't hesitate to contact me via email at dolzjaymar@gmail.com
+    </p>
+  </div>
+  <!-- under-construction banner -->
+
+
+
   <!-- navbar start -->
   <nav class="navbar navbar-expand-md fixed-top bg-dark border-body" data-bs-theme="dark">
     <div class="container-fluid ms-3">
@@ -110,10 +122,15 @@
           </div>
 
           <!-- button here -->
-          <div class="mt-4" id="hero-button">
+          <!-- <div class="mt-4" id="hero-button">
             <button class='glowing-btn'><span class='glowing-txt'>CONTACT ME!</span></button>
-          </div>
+          </div> -->
 
+          <div id="call-to-action">
+            <p>
+              Email Me at dolzjaymar@gmail.com
+            </p>
+          </div>
           
         </div>
       </div>
@@ -174,13 +191,34 @@
             I'm now actively seeking a role that merges my technical expertise with my newfound love for coding, aspiring to find fulfillment by aligning my work with my true passion and making significant contributions to the tech industry.
           </span>
           <div class="my-4" id="button-container">
-            <button id="btn-1">VIEW CV</button>
-            <button id="btn-2">DOWNLOAD CV</button>
+            <button id="btn-1" data-bs-toggle="modal" data-bs-target="#resume-modal">VIEW CV</button>
+            <button onclick="downloadPDF()" id="btn-2">DOWNLOAD CV</button>
           </div>
         </div>
+
       </div>
     </div>
   </section>
+
+  <!-- MODAL -->
+  <div class="modal fade" id="resume-modal" tabindex="-1" aria-labelledby="Resume" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="label">RESUME</h1>
+          <!-- <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+          <div id="resume">
+            <iframe src="JCDolz Resume.pdf"></iframe>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- End of About Me Section -->
  
   <!-- Tech Stack Section -->
@@ -415,7 +453,8 @@
 
       </div>
 
-
+      <div id="glow-overlay">      
+      </div>
       <div>
         <p id="text-overlay">PROJECTS PROJECTS PROJECTS</p>
       </div>
@@ -578,6 +617,30 @@
     });
   </script>
   <!-- End of About Me Header Height Adjust -->
+
+  <!-- Download BUtton -->
+  <script>
+    function downloadPDF() {
+
+      var pdfUrl = './JCDolz Resume.pdf';
+      
+      // Create an <a> element and set its attributes
+      var link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = 'JCDolz Resume'; 
+      
+      // Append the <a> element to the body
+      document.body.appendChild(link);
+      
+      // Programmatically trigger a click event on the <a> element
+      link.click();
+      
+      // Remove the <a> element from the DOM
+      document.body.removeChild(link);
+    }
+  </script>
+
+
   <!-- Tech Stack Scroll Fix -->
   <script>
     function scrollToTechStack() {
