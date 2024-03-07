@@ -69,15 +69,13 @@
               <a class="nav-link" href="#about-me" onclick="lenis.scrollTo('#about-me')">About Me</a>
             </li>
             <li class="nav-item">
-              <!-- <a class="nav-link" href="#tech-stack" onclick="lenis.scrollTo('#tech-stack')">Tech Stack</a> -->
-              <!-- <a class="nav-link" href="#tech-stack" onclick="lenis.scrollTo('#projects', {offset:-930})">Tech Stack</a> -->
               <a class="nav-link" href="#tech-stack" onclick="scrollToTechStack()">Tech Stack</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#works" onclick="lenis.scrollTo('#projects')">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Digital Art</a>
+              <a class="nav-link" href="#works" onclick="lenis.scrollTo('#artwork')">Digital Art</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contact Me</a>
@@ -275,6 +273,10 @@
                   <img src="./images/tech stack/expressjs.png" alt="Expressjs Logo">
                 </li>
                 <li>
+                  Reactjs
+                  <img src="./images/tech stack/reactjs.png" alt="Reactjs Logo">
+                </li>
+                <li>
                   Nodejs
                   <img src="./images/tech stack/nodejs.png" alt="NodeJS Logo">
                 </li>
@@ -453,10 +455,86 @@
 
       </div>
 
+      <div id="bottom-overlay"></div>
+      <div id="glow-overlay">      
+      </div>
+  
+      <div>
+        <p id="text-overlay">PROJECTS PROJECTS PROJECTS</p>
+      </div>
+
+      <div id="top-overlay">
+
+      </div>
+      <!-- <div id="content-overlay">
+      </div> -->
+    </section>
+    <!-- Projects Section -->
+
+
+
+    <!-- Artwork Section -->
+    <section class="container-fluid" id="artwork">
+      <div class="d-flex justify-content-end text-center">
+        <h1 id="section-header">DIGITAL ART</h1>
+      </div>
+
+      <div class="container" id="img-gallery">
+        <div class="row" id="img-gallery-container">
+
+          <div class="col-4" id="img-gallery-section1">
+
+            <div id="img-wrapper">
+              <img src="./images/artwork/bicoluniversityrebranding.webp" alt="bicol unveristy branding">
+            </div>
+            <div id="img-wrapper">
+              <img src="./images/artwork/fitgraphic.webp" alt="bicol unveristy branding">
+            </div>
+            <div id="img-wrapper">
+              <img src="./images/artwork/workhardtshirt.webp" alt="bicol unveristy branding">
+            </div>
+          </div>
+
+          <div class="col-4" id="img-gallery-section2">
+
+            <div id="img-wrapper">
+              <img src="./images/artwork/playtimemascot.webp" alt="bicol unveristy branding">
+            </div>
+            <div id="img-wrapper">
+              <img src="./images/artwork/playtimelogo.webp" alt="bicol unveristy branding">
+            </div>
+            <div id="img-wrapper">
+              <img src="./images/artwork/marhaynaaldaw.webp" alt="bicol unveristy branding">
+            </div>
+            <div id="img-wrapper">
+              <img src="./images/artwork/diwali.webp" alt="bicol unveristy branding">
+            </div>
+          </div>
+
+          <div class="col-4" id="img-gallery-section3">
+            <div id="img-wrapper">
+              <img src="./images/artwork/quickthumbnails.webp" alt="bicol unveristy branding">
+            </div>
+            <div id="img-wrapper">
+              <img src="./images/artwork/gamingduo.webp" alt="bicol unveristy branding">
+            </div>
+          </div>
+        </div>
+
+        <!-- <div id="call-to-action">
+          <h1>
+            LIKE WHAT YOU SEE? GET IN TOUCH!
+          </h1>
+        </div> -->
+      </div>
+
+
+
+
       <div id="glow-overlay">      
       </div>
       <div>
-        <p id="text-overlay">PROJECTS PROJECTS PROJECTS</p>
+        <p id="text-overlay">DIGITAL ART DIGITAL ART DIGITAL ART</p>
       </div>
 
       <div id="top-overlay">
@@ -464,7 +542,7 @@
       <!-- <div id="content-overlay">
       </div> -->
     </section>
-    <!-- Projects Section -->
+    <!-- Artwork Section -->
 
   </div>
   <!-- END OF WORKS PROJECTS DIGITAL ART -->

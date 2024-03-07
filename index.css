@@ -583,6 +583,7 @@ html.lenis {
       font-size: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
       color: transparent;
       text-align: justify;
+      font-weight: bold;
     }
 
 
@@ -592,7 +593,7 @@ html.lenis {
       color: #ffffff;
       text-align: justify;
       margin-bottom: 5vh;
-      -webkit-text-stroke: .4px #030406;
+
     }
 
     @media  (max-width: 766px) {
@@ -729,9 +730,11 @@ html.lenis {
     #about-me button:active:not(:focus-visible) {
       --_s: .75;
     }
+
     #about-me button:active {
       transition: transform .1s linear;
       transform: scale(0.90);
+      
     }
     
     
@@ -1138,8 +1141,8 @@ html.lenis {
       background-image: url('./images/parallaxbg1.png');
       background-position: center top;
       background-size: contain;
-      background-repeat: no-repeat;
-      height: 350vh;
+
+      height: 500vh;
       width: 100vw;
       filter: blur(5px);
       animation: scrollY 100s linear infinite;
@@ -1147,7 +1150,7 @@ html.lenis {
     }
 
     #works-slidersmall2{
-      top: 350vh;
+      top: 500vh;
     }
 
     #works-sliderlarge1,
@@ -1159,7 +1162,8 @@ html.lenis {
       background-image: url('./images/parallaxbg2.png');
       background-position: center top;
       background-size: contain;
-      height: 350vh;
+      background-repeat: repeat;
+      height: 450vh;
       width: 100vw;
       opacity: 40%;
       filter: blur(10px);
@@ -1168,14 +1172,14 @@ html.lenis {
     }
 
     #works-sliderlarge2{
-      top: 350vh;
+      top: 450vh;
     }
 
     @media  (max-width: 766px) {
       #works-slidersmall1,
       #works-slidersmall2{
         width: 200vw;
-        height: 350vh;   
+        height: 500vh;   
       }
 
       #works-sliderlarge1,
@@ -1183,7 +1187,7 @@ html.lenis {
         background-size: contain;
         right: 5vw;
         width: 250vw;
-        height: 350vh;
+        height: 500vh;
       }
     }
   
@@ -1445,7 +1449,7 @@ html.lenis {
 
 /*================== WORKS ==================*/
 
-    /* TYPE WRITER ANIMATION https://www.youtube.com/watch?v=yefgBA1CecI */
+    
 
     #projects {
       position: relative;
@@ -1534,6 +1538,17 @@ html.lenis {
       --bs-gutter-x: 0px;
     }
 
+    #projects #bottom-overlay{
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(180deg, rgba(5,9,14,0) 0%, rgba(5,9,14,0) 80%, rgba(5,9,14,1) 95%, rgba(5,9,14,1) 100%);
+      height: 100vh;
+      width: 100vw;
+      --bs-gutter-x: 0px;
+    }
+
     #projects #content-overlay{
       position: absolute;
       top: 0;
@@ -1563,13 +1578,6 @@ html.lenis {
       z-index: 2;
     }
 
-    @media  (max-width: 766px) {
-      #projects #section-header{
-        margin-top: 25vh;
-      }
-    }
-
-
 
     @media  (max-width: 766px) {
       #projects #section-header{
@@ -1598,14 +1606,17 @@ html.lenis {
 
 
     #projects #project-list{
+      position: relative;
       padding-inline: 15vw;
       margin-top:10vh;
+      z-index: 5;
     }
 
     @media  (max-width: 766px) {
       #projects #project-list{
         padding-inline: 15vw;
         margin-top: 3vh;
+        z-index: 5;
       }
     }
 
@@ -1688,7 +1699,8 @@ html.lenis {
       position: absolute;
       top: -6%;
       left: 1.5rem;
-      background-color: #64fcf4;
+      background-color: #ffff03;
+      font-weight: bold;
       color: rgb(0, 0, 0);
       padding: 5px;
       border-radius: 5px;
@@ -1779,3 +1791,139 @@ html.lenis {
         transition:  none;
       }
     }
+
+
+
+/*================== WORKS ==================*/
+
+    /* TYPE WRITER ANIMATION https://www.youtube.com/watch?v=yefgBA1CecI */
+
+    #artwork {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 6;
+      width: 100vw;
+    }
+
+
+
+    #artwork  #text-overlay{
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      height: 100vh;
+      font-size: clamp(4rem, 2.0583rem + 8.2848vw, 12rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf1;
+      /* color: #66fcf250; */
+      mix-blend-mode: overlay;
+      white-space:nowrap;
+      transform: translateX(-25%);
+    }
+
+    @media  (max-width: 766px) {
+      #artwork  #text-overlay{
+        margin-top: -10vh;
+        top: 10vh;
+        color: #66fcf1;
+      }
+    }
+
+    #artwork  #glow-overlay {
+      position: absolute;
+      bottom: 30vh;
+      left: 10vw;
+      width: 80vw;
+      height: 60vh;
+      background-image: url('./images/overlay-glow.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+      filter: blur(10vw);
+      mix-blend-mode: hard-light;
+      opacity: 35%;
+    }
+
+    @media  (max-width: 766px) {
+      #artwork  #glow-overlay {
+        display: none;
+      }
+    }
+
+    #artwork  #glow-overlay::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #19e0ff;
+      z-index: 1;
+    }
+
+    #artwork  #top-overlay{
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -2;
+      background: linear-gradient(0deg, rgba(5,9,14,0) 0%, rgba(5,9,14,0) 65%, rgba(5,9,14,1)  75%, rgba(5,9,14,1) 100%);
+      height: 100%;
+      width: 100%;
+      --bs-gutter-x: 0px;
+    }
+
+
+
+    #artwork #section-header{
+      position: relative;
+      top: 0;
+      right: 5vw;
+      margin-top: 15vh;
+      font-size: clamp(2rem, 1.2718rem + 3.1068vw, 5rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf2;
+      z-index: 2;
+    }
+
+
+    @media  (max-width: 766px) {
+      #artwork #section-header{
+        margin-top: 5vh;
+      }
+    }
+
+    #artwork #img-gallery #img-gallery-section1{
+      height: 100%;
+    }
+
+    #artwork #img-gallery {
+
+      padding-top: clamp(1rem, 0.7573rem + 1.0356vw, 1.5rem);
+      margin-bottom: 20vh;
+    }
+
+
+    #artwork #img-wrapper{
+      width: 100%;
+    }
+
+    #artwork #img-wrapper img{
+      width: 100%;
+      margin-bottom: clamp(1rem, 0.7573rem + 1.0356vw, 1.5rem);
+    }
+
+    /* #artwork #call-to-action{
+      position: relative;
+      bottom: 25vh;
+    }
+
+    #artwork #call-to-action h1{
+      width: 60%;
+      top: 0;
+      right: 5vw;
+      font-size: clamp(1rem, 1.2718rem + 3.1068vw, 5rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf2;
+      z-index: 2;
+    } */
