@@ -485,50 +485,48 @@
           <div class="col-4" id="img-gallery-section1">
 
             <div id="img-wrapper">
-              <img src="./images/artwork/bicoluniversityrebranding.webp" alt="bicol unveristy branding">
+              <img src="./images/artwork/bicoluniversityrebranding.webp" alt="bicol university branding">
             </div>
             <div id="img-wrapper">
-              <img src="./images/artwork/fitgraphic.webp" alt="bicol unveristy branding">
+              <img src="./images/artwork/fitgraphic.webp" alt="fit raphic">
             </div>
             <div id="img-wrapper">
-              <img src="./images/artwork/workhardtshirt.webp" alt="bicol unveristy branding">
+              <img src="./images/artwork/workhardtshirt.webp" alt="work hard tshirt idea">
             </div>
           </div>
 
           <div class="col-4" id="img-gallery-section2">
 
             <div id="img-wrapper">
-              <img src="./images/artwork/playtimemascot.webp" alt="bicol unveristy branding">
+              <img src="./images/artwork/playtimemascot.webp" alt="playtime mascot">
             </div>
             <div id="img-wrapper">
-              <img src="./images/artwork/playtimelogo.webp" alt="bicol unveristy branding">
+              <img src="./images/artwork/playtimelogo.webp" alt="playtime logo">
             </div>
             <div id="img-wrapper">
-              <img src="./images/artwork/marhaynaaldaw.webp" alt="bicol unveristy branding">
+              <img src="./images/artwork/marhaynaaldaw.webp" alt="marhay na aldaw">
             </div>
             <div id="img-wrapper">
-              <img src="./images/artwork/diwali.webp" alt="bicol unveristy branding">
+              <img src="./images/artwork/diwali.webp" alt="happy diwali">
             </div>
           </div>
 
           <div class="col-4" id="img-gallery-section3">
             <div id="img-wrapper">
-              <img src="./images/artwork/quickthumbnails.webp" alt="bicol unveristy branding">
+              <img src="./images/artwork/quickthumbnails.webp" alt="playtime sketch thumbnails">
             </div>
             <div id="img-wrapper">
-              <img src="./images/artwork/gamingduo.webp" alt="bicol unveristy branding">
+              <img src="./images/artwork/gamingduo.webp" alt="gaming duo branding">
             </div>
           </div>
         </div>
 
-        <!-- <div id="call-to-action">
-          <h1>
-            LIKE WHAT YOU SEE? GET IN TOUCH!
-          </h1>
-        </div> -->
       </div>
 
-
+      <div id="img-popup">
+        <span>&times;</span>
+        <img id="img" src="" alt="">
+      </div>
 
 
       <div id="glow-overlay">      
@@ -539,8 +537,7 @@
 
       <div id="top-overlay">
       </div>
-      <!-- <div id="content-overlay">
-      </div> -->
+
     </section>
     <!-- Artwork Section -->
 
@@ -588,7 +585,7 @@
 
   <!-- Smooth Scrolling -->
   <script>
-    const lenis = new Lenis()
+    const lenis= new Lenis();
 
     lenis.on('scroll', (e) => {
       console.log(e)
@@ -640,6 +637,7 @@
     window.onload=animateText;
   </script>
   <!--End of Text Animation -->
+
   <!-- Infinite Scroll -->
   <script>
     const scrollers = document.querySelectorAll(".scroller");
@@ -733,6 +731,66 @@
     }
   </script>
   <!-- End of Tech Stack Scroll Fix -->
+
+  <!-- image popup for image gallery-->
+  <script>
+
+    // PROBLEM, since i have added a before and after on the image wrapper with z index 999 i cannot click the image itself hence i need to instead apply onclick event on the image wrapper itself
+
+    // document.querySelectorAll('#img-gallery img').forEach(image =>{
+    //   image.onclick = () => {
+    //     document.querySelector('#img-popup').style.display = 'block';
+    //     document.querySelector('#img-popup img').src = image.getAttribute('src');
+    //   }
+    // });
+
+    document.querySelectorAll('#img-gallery #img-wrapper').forEach(wrapper=> {
+      wrapper.addEventListener('click', () => {
+
+          lenis.stop();
+
+          // Execute the action you want when the wrapper is clicked
+          // For example, display the enlarged image
+          document.querySelector('#img-popup').style.display = 'block';
+          document.querySelector('#img-popup img').src = wrapper.querySelector('img').getAttribute('src');
+          });
+  
+
+          // PROBLEM Image not scrolling inside the popup due to lenis instance only being in the html body
+          // solution needed to create a new lenis instance within the popup with the wrapper and content set to the img-popup however this alone does nhot create the instance,
+          // I needed to add the eventsTarget to listen to the wrapper when clicked to create the instance?
+
+          const lenisPopup = new Lenis({
+            // THIS TRIO WTF
+            wrapper: document.getElementById('img-popup'),
+            content: document.getElementById('img-popup'),
+            eventsTarget: wrapper
+          });
+
+          
+          lenisPopup.on('scroll', (e) => {
+            console.log(e)
+          })
+
+          function raf(time) {
+            lenisPopup.raf(time)
+            requestAnimationFrame(raf)
+          }
+
+      });
+
+      document.querySelector('#img-popup span').onclick = () => {
+        document.querySelector('#img-popup').style.display = 'none';
+        lenis.start();
+  
+        lenisPopup.destroy();
+      }
+  </script>
+  <!-- image popup -->
+
+
+
+
 </body>
 
 </html>

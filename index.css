@@ -9,6 +9,7 @@ html.lenis {
   height: auto;
 }
 
+
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
@@ -1898,11 +1899,15 @@ html.lenis {
     }
 
     #artwork #img-gallery {
-
       padding-top: clamp(1rem, 0.7573rem + 1.0356vw, 1.5rem);
       margin-bottom: 20vh;
     }
 
+    @media  (max-width: 766px) {
+      #artwork #img-gallery{
+      margin-bottom: 5vh;
+      }
+    }
 
     #artwork #img-wrapper{
       width: 100%;
@@ -1927,3 +1932,116 @@ html.lenis {
       color: #66fcf2;
       z-index: 2;
     } */
+
+    /* 
+      image popup
+      https://www.youtube.com/watch?v=QghhoJBdw7A&t
+    */
+
+
+
+    #img-gallery #img-wrapper:hover img{
+      position: relative;  
+    }
+
+    #img-gallery #img-wrapper:hover img{
+      transform: scale(1.1);
+      z-index: 998;
+      transition: .1s ease-in-out;  
+    }
+
+    #img-gallery-section1 #img-wrapper,
+    #img-gallery-section2 #img-wrapper,
+    #img-gallery-section3 #img-wrapper
+    {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #img-gallery #img-wrapper:hover::after{
+      content: "Click to enlarge";
+      position: absolute;
+      text-shadow: 0px 0px 15px #000000;
+      top: 1rem;
+      left: 15%;
+      font-size: clamp(0.7rem, 0.5058rem + 0.8285vw, 1.5rem);
+      font-weight: bold;
+      color: #19e0ff;;
+      z-index: 999;
+      transform: scale(1.1);
+      transition: all .1s ease-in-out;  
+    }
+
+    #img-gallery #img-wrapper:hover::before{
+      content: "";
+      position: absolute;
+      background-color: hsla(0, 0%, 0%, 0.5);
+      z-index: 999;
+      width: 100%;
+      height: 100%;
+
+      transform: scale(1.1);
+      transition: .1s ease-in-out;  
+    }
+
+    #img-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+      z-index: 999;
+      display: none;
+    }
+
+    #img-popup img {
+      object-fit: contain;
+      width: 50%;
+      margin: 5% auto;
+      display: block; 
+    }
+    
+    #img-popup span{
+      position: fixed;
+      top: 5vh;
+      right: 12vw;
+      font-size: 5rem;
+      font-weight: bolder;
+      color: white;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    @media  (max-width: 766px) {
+      #img-popup span{
+        font-size: 3rem;
+        right: 3vw;
+      }
+
+      #img-popup img {
+        width: 70%;
+        margin: 50% auto;
+      }
+    }
+
+
+    #img-popup .lenis {
+    height: auto;
+    }
+
+
+    #img-popup .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    #img-popup .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+
+
+    #img-popup .lenis.lenis-scrolling iframe {
+      pointer-events: none;
+    }
