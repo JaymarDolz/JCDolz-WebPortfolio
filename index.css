@@ -1119,7 +1119,7 @@ html.lenis {
             #container-tech{
               position: relative;
               top: 100vh;
-              height: 200vh;
+              height: 250vh;
               z-index: 3;
               /* border: 3px solid rgb(250, 255, 115); */
             }
