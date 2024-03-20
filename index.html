@@ -26,12 +26,14 @@
 </head>
 <body>
   
+
+  
   <!-- under-construction banner -->
-  <div id="banner-bottom">
+  <!-- <div id="banner-bottom">
     <p>
       While my web portfolio is under construction, please don't hesitate to contact me via email at dolzjaymar@gmail.com
     </p>
-  </div>
+  </div> -->
   <!-- under-construction banner -->
 
 
@@ -78,7 +80,7 @@
               <a class="nav-link" href="#works" onclick="lenis.scrollTo('#artwork')">Digital Art</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Me</a>
+              <a class="nav-link" href="#contact" onclick="lenis.scrollTo('end')">Contact Me</a>
             </li>
           </ul>
 
@@ -142,6 +144,80 @@
 
   </section>
   <!-- End of Hero Section -->
+
+  <!-- CONTACT ME SECTION -->
+  <section class="container-fluid" id="contact">
+    <div id="overlay">
+    </div>
+
+
+    <div class="row">
+
+      <div class="order-1 col-12 col-md-4 d-flex flex-column align-items-center justify-content-center d-flex flex-column" id="form">
+        <div class="text-center" id="form-header">
+          <h1>
+            LIKE WHAT YOU SEE?
+          </h1>
+          <h2>
+            GET IN TOUCH!
+          </h1>
+        </div>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" autocomplete="on">
+          <input type="hidden" name="access_key" value="3a60a4a4-c89f-47a9-89dc-711a63f8ed08">
+
+          <div class="mb-3 form-container">
+            <label for="form-Name" class="form-label">Name</label>
+            <input type="text" name="Name" class="form-control" id="form-Name" placeholder="Your Name" required>
+          </div>
+  
+          <div class="mb-3 form-container">
+            <label for="contact-email" class="form-label">Email address</label>
+            <input type="email" name="E-mail" class="form-control" id="contact-email" placeholder="name@example.com" required>
+          </div>
+  
+          <div class="mb-3 form-container">
+            <label for="sender-message" class="form-label">Your Message</label>
+            <textarea class="form-control align-items-end" id="sender-message" rows="3" name="message" cols="100" placeholder="Your Message" required></textarea>
+          </div>
+
+          <!-- PROBLEM
+            in this setup with api "https://api.web3forms.com/submit" I need to use the captcha to submit the form, however the submit button still goes through when the user skips the catpcha and shows an ugly screen, to prevent this i need to
+            IDEA: disable the button when the captcha is unchecked, however i do not know yet how to listen in to the EMBEDDED CAPTCHA FORM! ran through so many hours with this
+
+            Other Alternative: USE THE API? INSTEAD, to prevent sending the form
+            script starts at line 869
+          -->
+
+          <div id="captcha-container">
+            <div class="h-captcha" data-captcha="true"></div>
+          </div>
+
+
+          
+          <div class="d-flex justify-content-center align-items-center" id="form-button-container">
+            <button class="btn" id="submitButton">
+              Submit
+            </button>
+          </div>
+
+        </form>
+
+
+
+      </div>
+
+
+      <div class="order-2 col-12 col-md-8 d-flex align-items-end  justify-content-center" id="hero-profile">
+        <img src="./images/myprofile.webp" alt="Jaymar Dolz Profile">
+      </div>
+
+      <div id="glow-overlay">
+      </div>
+    </div>
+
+  </section>
+  <!-- END OF CONTACT ME SECTION -->
+
 
   <!-- About Me Section -->
   <section class="container-fluid" id="about-me">
@@ -219,6 +295,8 @@
   </div>
   <!-- End of About Me Section -->
  
+
+
   <!-- Tech Stack Section -->
   <div id="container-tech">
     <section class="container-fluid" id="tech-stack">
@@ -444,7 +522,7 @@
               </div>
               <div id="content-description">
                 <p>
-                  I'm excited to show my skills and help your projects succeed. With my technical expertise and dedication to coding, I'm here to offer fresh ideas and solutions.
+                  I'm excited to show my skills and help your projects succeed. As a newcomer, I am eager to learn and showcase my abilities.  I'm here to offer fresh ideas and solutions.
                 </p>
               </div>
   
@@ -470,8 +548,6 @@
       </div> -->
     </section>
     <!-- Projects Section -->
-
-
 
     <!-- Artwork Section -->
     <section class="container-fluid" id="artwork">
@@ -543,8 +619,6 @@
 
   </div>
   <!-- END OF WORKS PROJECTS DIGITAL ART -->
-
-
 
 
 
@@ -788,6 +862,67 @@
   </script>
   <!-- image popup -->
 
+  <!-- Include the script to load the hCaptcha library -->
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <!-- SCRIPT FOR CONTACT FORM -->
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+  
+      var form = document.getElementById('contact-form');
+      var formData = new FormData(form);
+  
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Your message has been sent successfully.'
+          });
+
+          form.reset();
+        } else {
+
+          if (data.message.includes('hCaptcha Token is mandatory')) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: 'hCaptcha is mandatory for this form.'
+            });
+          } else {
+
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: 'Failed to send message. Please try again later.'
+            });
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'An error occurred. Please try again later.'
+        });
+      });
+    });
+  </script>
+  
 
 
 

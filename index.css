@@ -96,7 +96,7 @@ html.lenis {
 
 /*================ Hero Section =============*/
     #hero{
-      position: fixed; 
+      position: sticky; 
       top: 0; 
       left: 0;
       height: 100vh;
@@ -104,7 +104,7 @@ html.lenis {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      z-index: 0;
+      z-index: -4;
     }
 
     
@@ -649,7 +649,7 @@ html.lenis {
       clip-path: polygon(0 0,100% 0,calc(100% - 0.577*var(--h)) 100%,0 100%);
       padding: 0 calc(0.288*var(--h)) 0 0;
       margin: 0 calc(-0.288*var(--h)) 0 0;
-      transition: flex .4s, color 1s;
+      transition: flex .4s, color .3s;
     }
 
     #about-me #button-container  button + button {
@@ -696,7 +696,7 @@ html.lenis {
       background-color: #61efff;
       /* background-color: #676969; */
       z-index: -1;
-      transition: all 2s linear;
+      transition: all 1.5s linear;
     }
 
     /* NOTE THE POSITIONING OF + */
@@ -711,7 +711,7 @@ html.lenis {
       transform: skewX(45deg);
       background-color: #43dca1;
       z-index: -1;
-      transition: all 2s linear;
+      transition: all 1s linear;
     }
 
     #about-me #button-container button:hover::before {
@@ -1041,7 +1041,7 @@ html.lenis {
       transform: skewX(45deg);
       background-color: #61efff;
       z-index: -1;
-      transition: all 1s;
+      transition: all .5s;
     }
     
     #tech-stack .btn:hover::before {
@@ -1093,7 +1093,7 @@ html.lenis {
             #about-me {
               background-color: #0b0c10;
               position: relative;
-              top: 100vh;
+              top: -100vh;
               overflow: clip;
             }
 
@@ -1118,7 +1118,7 @@ html.lenis {
 
             #container-tech{
               position: relative;
-              top: 100vh;
+              top: -100vh;
               height: 250vh;
               z-index: 3;
               /* border: 3px solid rgb(250, 255, 115); */
@@ -1126,7 +1126,7 @@ html.lenis {
 
     #container-works{
       position: relative;
-      top: 0vh;
+      top: -200vh;
       z-index: 4;
       /* border: 5px solid blue; */
       background-color: #04080b;
@@ -1735,7 +1735,8 @@ html.lenis {
 
     @media  (max-width: 766px) {
       #projects #content #content-header #special-case-text {
-        color: #6d7172;
+        display: flex;
+        color: #9c9c9c;
         margin-top: -2%;
       }
     }
@@ -1795,7 +1796,7 @@ html.lenis {
 
 
 
-/*================== WORKS ==================*/
+/*================== ARTWORK ==================*/
 
     /* TYPE WRITER ANIMATION https://www.youtube.com/watch?v=yefgBA1CecI */
 
@@ -1911,11 +1912,12 @@ html.lenis {
 
     #artwork #img-wrapper{
       width: 100%;
+      margin-bottom: clamp(1rem, 0.7573rem + 1.0356vw, 1.5rem);
     }
 
     #artwork #img-wrapper img{
       width: 100%;
-      margin-bottom: clamp(1rem, 0.7573rem + 1.0356vw, 1.5rem);
+      transition: transform .2s ease-in-out;  
     }
 
     /* #artwork #call-to-action{
@@ -1947,7 +1949,7 @@ html.lenis {
     #img-gallery #img-wrapper:hover img{
       transform: scale(1.1);
       z-index: 998;
-      transition: .1s ease-in-out;  
+      transition: .2s ease-in-out;  
     }
 
     #img-gallery-section1 #img-wrapper,
@@ -1966,10 +1968,8 @@ html.lenis {
       left: 15%;
       font-size: clamp(0.7rem, 0.5058rem + 0.8285vw, 1.5rem);
       font-weight: bold;
-      color: #19e0ff;;
+      color: #ffffff;
       z-index: 999;
-      transform: scale(1.1);
-      transition: all .1s ease-in-out;  
     }
 
     #img-gallery #img-wrapper:hover::before{
@@ -1979,9 +1979,6 @@ html.lenis {
       z-index: 999;
       width: 100%;
       height: 100%;
-
-      transform: scale(1.1);
-      transition: .1s ease-in-out;  
     }
 
     #img-popup {
@@ -2040,8 +2037,244 @@ html.lenis {
       overscroll-behavior: contain;
     }
 
-
-
     #img-popup .lenis.lenis-scrolling iframe {
       pointer-events: none;
+    }
+
+
+
+/*================== CONTACT ME ==================*/
+
+    /* IDEA: MAKING THE CONTACT SECTION APPEAR FROM BEHIND THE WORKS SECTION WHILE SCROLLING DOWN*/
+
+    /* PROBLEM: Adding a container to the contact section with relative height to -100vh and height of 200vh makes a blank unused content below the contact due to relative position property.*/
+
+    /* PROBLEM: Adjusting every other section to +100vh to cover the contact section with height of 200vh makes the scroll from the hero to the sections longer*/
+
+    /* SOLUTION?: moved the contact section to be below the hero section behind the about me with fixed sticky so it scrolls with the card stacks and appears behind the stack after scrolling
+    however the height of the contact section is 200vh which is "unnoticable??"
+    */
+
+
+    #contact{
+      position: sticky;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      background-image: url('./images/herobg.webp');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+
+    
+    #contact #overlay{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 25%, rgba(0,0,0,0) 40%);
+      z-index: 1;
+    }
+    @media  (max-width: 766px) {
+      #contact #overlay{
+          display: none;
+      }
+    }
+ 
+
+    #contact #glow-overlay {
+      position: absolute;
+      bottom: 0;
+      right: 5%; 
+      width: 55vw;
+      height: 100%;
+      background-image: url('./images/overlay-glow.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      mix-blend-mode: overlay;
+      z-index: 1;
+      filter: blur(5vw);
+    }
+
+    @media  (max-width: 766px) {
+      #contact #glow-overlay {
+        display: none;
+      }
+    }
+
+    @media  (max-width: 766px) {
+      #contact #hero-profile img,
+      #contact #hero-profile
+      {
+        display: none;
+        height: 0;
+      }
+    }
+
+    #contact #form-header{
+      margin-left: 32%;
+    }
+
+    @media  (max-width: 766px) {
+      #contact #form-header{
+        margin-left: 0;
+        margin-top: 5vh !important;
+      }
+    }
+
+    #contact #form-header h1{
+      font-size: clamp(1rem, 0.6359rem + 1.5534vw, 2.5rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf2;
+    }
+
+    #contact #form-header h2{
+      font-size: clamp(1.4rem, 0.8903rem + 2.1748vw, 3.5rem);
+      font-family: 'HvDTrial Brandon Grotesque', sans-serif;
+      color: #66fcf2;
+      margin-bottom: 5vh;
+    }
+
+    #contact .form-label{
+      font-size: clamp(0.8rem, 0.6301rem + 0.7249vw, 1.5rem);
+      color: white;
+      font-weight: bold;
+    }
+
+    @media  (max-width: 766px) {
+      #contact #form-header{
+        margin-left: 0;
+        margin-top: 15vh;
+      }
+    }
+    
+    @media  (max-width: 766px) {
+      #contact input{
+        font-size: clamp(0.8rem, 0.6301rem + 0.7249vw, 1.5rem);
+      }
+    }
+
+    @media  (max-width: 766px) {
+      #contact .form-container{
+        margin-left: 0% !important;
+        width: 68%;
+      }
+    }
+    
+    @media  (max-width: 766px) {
+      #contact form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center ;
+      }
+    }
+
+    #contact .form-container{
+      width: 68%;
+      margin-left: 32%;
+    }
+
+    #contact .form-control{
+      font-weight: bolder;
+    }
+
+    #contact #form {
+      height: 100vh;
+      /* border: 5px solid yellow; */
+      z-index: 2;
+    }
+
+    #contact textarea {
+      resize: none;
+    }
+
+
+    #contact .form-control:focus {
+      border-color: #66fcf1; 
+      box-shadow: 0 0 0 0.25rem #66fcf1;
+    }
+
+    #contact #form-button-container{
+      width: 68%;
+      margin-left: 32%;
+    }
+
+        
+    @media  (max-width: 766px) {
+      #contact #form-button-container{
+        margin-left: 0%;
+      }
+    }
+
+    #contact .btn {
+      margin-top: 1em;
+      --bs-btn-border-radius: 0;
+      color: #61efff;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 3px solid #61efff;
+      padding: 10px 20px;
+      font-size: clamp(0.5rem, 0.3786rem + 0.5178vw, 1rem);
+      font-weight: bold;
+      background: transparent;
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    #contact .btn:hover {
+      color: #040a0d;
+      transition: all .3s;
+    }
+    
+    #contact .btn::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      top: 0;
+      left: -40px;
+      transform: skewX(45deg);
+      background-color: #61efff;
+      z-index: -1;
+      transition: all .3s;
+    }
+    
+    #contact .btn:hover::before {
+      width: 160%;
+    }
+
+    #contact #captcha-container{
+      display: flex;
+      margin-top: 5vh;
+      justify-content: center;
+      align-items: center;
+      width: 68%;
+      margin-left: 32%;
+      z-index: 999;
+    }
+
+            
+    @media  (max-width: 766px) {
+      #contact #captcha-container{
+        width: 100%;
+        margin-left: 8%;
+        margin-top: .5rem !important;
+      }
+
+    }
+
+
+    #contact .btn:active{
+      transition: 100ms linear;
+      transform: scale(0.95);
+
     }
